@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    background-size: 100% 1000%;
+    
+}
+
+li, a, button {
+    font-family: "Aharoni", "Montserrat";
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+    text-decoration: none;
+    background-image: none;
+
+}
+
+header{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 3%;
+}
+
+.logo{
+    height: 55px;
+    width: 293px;
+    color: rgb(255, 255, 255);
+    font-family: "Aharoni";
+    font-size: 75px;
+    font-weight: 700;
+    letter-spacing: 6.82px;
+    line-height: 75px;
+    text-align: center;
+    text-shadow: 3px 10px 10px #C86F86;
+    background-image: none;
+    transition: all 0.9s ease 0s;
+    
+
+}
+
+.logo:hover{
+    font-size: 83px;
+    cursor:pointer;
+
+}
+
+@keyframes logo_animation {
+    from{ transform: scale(1.0) }
+    to{ transform: scale(1.1) }
+}
+
+.nav__links {
+    
+    height: 53px;
+    width: 685.9px;
+    opacity: 0.80;
+    border-radius: 25px;
+    background: radial-gradient(circle, #086788 0%, rgb(83, 97, 134) 100%);
+    box-shadow: 2px 1px 10px 0 #1A6582;
+}
+
+.nav__links li {
+    display: inline-block;
+    padding: 10px 30px;
+}
+
+.nav__links li a {
+    transition: all 1.6s ease 0s;
+}
+
+.nav__links li a:hover {
+    color:rgb(156, 102, 152);
+    font-size: 103%;
+}
+
+button {
+    margin-left: 40px;
+    padding: 10px 25px;
+    color: rgb(255, 255, 255);
+    background-image: linear-gradient(45deg, #8baaaa 0%, #802551 100%);
+    box-shadow: 1px 1px 6px 0 #611a82;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 2s ease 0s;
+}
+
+button:hover {
+    background: #000000;
+}
