@@ -65,12 +65,11 @@ header{
 }
 
 .nav__links li a {
-    transition: all 1.6s ease 0s;
+    transition: all 0.7s ease 0s;
 }
 
 .nav__links li a:hover {
-    color:rgb(156, 102, 152);
-    font-size: 103%;
+    text-shadow: 3px 3px #C86F86;
 }
 
 button {
@@ -82,9 +81,9 @@ button {
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    transition: all 2s ease 0s;
+    transition: all 0.7s ease 0s;
 }
 
-button:hover {
-    background: #000000;
+button:hover{
+    text-shadow: 3px 3px #dd9bad;
 }
