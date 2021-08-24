@@ -4,9 +4,11 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body{
     background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
     background-size: 100% 1000%;
-    
 }
 
 li, a, button {
@@ -15,7 +17,6 @@ li, a, button {
     font-size: 30px;
     color: white;
     text-decoration: none;
-    background-image: none;
 
 }
 
@@ -38,21 +39,14 @@ header{
     line-height: 75px;
     text-align: center;
     text-shadow: 3px 10px 10px #C86F86;
-    background-image: none;
     transition: all 0.9s ease 0s;
     
-
 }
 
 .logo:hover{
     font-size: 83px;
     cursor:pointer;
 
-}
-
-@keyframes logo_animation {
-    from{ transform: scale(1.0) }
-    to{ transform: scale(1.1) }
 }
 
 .nav__links {
