@@ -4,6 +4,8 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-size: 2.8vh;
+    font-family: "Aharoni", "Montserrat";
 }
 
 body{
@@ -12,10 +14,7 @@ body{
 }
 
 li, a, button {
-    font-family: "Aharoni", "Montserrat";
     font-weight: bold;
-    font-size: 1.55vw;
-    font-size: 2.5vh;
     color: rgb(255, 255, 255);
     text-decoration: none;
     text-shadow: 1px 1px 1px #000000;
@@ -25,7 +24,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3% 3%;
+    padding: 2% 3%;
 }
 
 nav{
@@ -38,9 +37,9 @@ nav{
 .logo{
     color: rgb(255, 255, 255);
     font-family: "Aharoni";
-    font-size: 4vw;
+    font-size: 4.5vw;
     font-weight: 700;
-    letter-spacing: 6.82px;
+    letter-spacing: 0.6vw;
     line-height: 70px;
     text-align: center;
     text-shadow: 3px 10px 10px #C86F86;
@@ -49,23 +48,24 @@ nav{
 }
 
 .logo:hover{
-    font-size: 83px;
+    font-size: 5vw;
     cursor:pointer;
 
 }
 
 .nav__links {
-    width: 100%;
+    
     opacity: 0.80;
     border-radius: 50px;
     background: radial-gradient(circle, #086788 0%, rgb(83, 97, 134) 100%);
     box-shadow: 2px 1px 10px 0 #1A6582;
     text-align: center;
+    padding: 0.88vh 0.7vw;
 }
 
 .nav__links li {
     display: inline-block;
-    padding: 10px 30px;
+    padding: 1px 18px;
     
 }
 
@@ -75,14 +75,14 @@ nav{
 
 .nav__links li a:hover {
     text-shadow: 3px 3px #C86F86;
+    font-size: 2.9vh;
 }
 
 
 button {
-    margin-left: 40%;
-    margin-right: 1vw;
-    height: 2.5vw;
-    width: 110%;
+    margin-left: 25%;
+    margin-right: 3vw;
+    padding: 0.84vh 0.7vw;
     color: rgb(255, 255, 255);
     background-image: linear-gradient(45deg, #8baaaa 0%, #802551 100%);
     box-shadow: 1px 1px 6px 0 #611a82;
@@ -93,23 +93,36 @@ button {
 
 button:hover{
     text-shadow: 3px 3px #dd9bad;
+    font-size: 2.85vh;
 }
 
 
-.presupuesto li{
-    display: inline-block;
-    margin: 50px 40px;
-    padding: 10px 30px;
-    border-radius: 25px;
+.presupuesto{ 
+    
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px #000000;
+    border-spacing: 3.6vw 10px;
+    margin-top: 50px;
+    margin-left: 14px;
+    
+} 
+.presupuesto td{
+    padding: 0.88vh 0.7vw;
+    border-radius: 50px; 
 }
 
-.presupuesto__info li{
-    background-color: grey;
+.presupuesto thead td{
+    background-image: linear-gradient(45deg, #7c4081 0%, #802551 100%);
 }
 
-.presupuesto__valores li{
-    font-size: 36px;
-    margin: 120px 40px;
-    margin-left: 150px;
-    background-color: rgb(175, 32, 32);
+.presupuesto__body td{
+    font-size: 3.8vh;
+    padding: 0.5vh 0.7vw;
+    background-color: rgba(0, 0, 0, 0.384);
+    margin: 10px;
+}
+
+#empty{
+    background-color: inherit;
 }
