@@ -1,20 +1,22 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} {% block title %} Agregar gastos {% endblock %} {%
+block body %}
 
-{% block title %}
-    Agregar gastos
-{% endblock %}
-
-{% block body %}
+<table class="presupuesto">
     
-<div class="presupuesto">
+        <tr>
+            <td>Presupuesto</td>
+            <td>Anual</td>
+            <td>Mensual</td>
+        </tr>
+    
 
-    <ul>
-        <li>Presupuesto</li>
-        <li>Anual</li>
-        <li>Mensual</li>
-    </ul>
-
-
-</div>
+    <tbody>
+        <tr class="presupuesto__body">
+            <td></td>
+            <td>$500.000</td>
+            <td>$50.000</td>
+        </tr>
+    </tbody>
+</table>
 
 {% endblock %}

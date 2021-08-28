@@ -2,32 +2,33 @@
 
 <html lang="en">
 
-    <head>
+<head>
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1, width=device-width">
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
 
-        <title>{% block title %}{% endblock %}</title>
-        <link href="/static/styles.css" rel="stylesheet">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="/static/styles.css" rel="stylesheet">
 
-    </head>
+</head>
 
-    <body>
-        <header>
-            <h1 class="logo">budget</h1>
-            
-            <nav>
-                <ul class="nav__links">
-                    
-                    <li> <a href="#">Ver gastos</a></li>
-                    <li> <a href="/agregar">Agregar gastos</a></li>
-                    <li> <a href="#">Cuenta</a></li>
-                    
-                </ul>
-            </nav>
-            <a class="cta" href="#"><button>Contact</button></a>
-        </header>
-        {% block body%} {% endblock %}
-    </body>
+<body>
+    <header>
+        <h1 class="logo">budget</h1>
+
+        <nav>
+            <ul class="nav__links">
+
+                <li> <a href="/">Ver gastos</a></li>
+                <li> <a href="/agregar">Agregar gastos</a></li>
+                <li> <a href="#">Cuenta</a></li>
+
+            </ul>
+            <a href="#"><button>Contact</button></a>
+        </nav>
+
+    </header>
+    {% block body%} {% endblock %}
+</body>
 
 </html>
