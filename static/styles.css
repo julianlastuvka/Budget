@@ -6,18 +6,13 @@
     padding: 0;
     font-size: 2.8vh;
     font-family: "Aharoni", "Montserrat";
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 1px #000000;
 }
 
 body{
-    background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
-    background-size: 100% 1000%;
-}
-
-li, a, button {
-    font-weight: bold;
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    text-shadow: 1px 1px 1px #000000;
+    background-image: radial-gradient(circle, #f4bdcb, #f5c3cf, #f6c9d4, #f6cfd8, #f7d5dd, #f7d7df, #f8dae0, #f8dce2, #f8dbe1, #f7dae0, #f7d8df, #f6d7de);   background-size: 100% 1000%;
 }
 
 header{
@@ -79,7 +74,9 @@ nav{
 }
 
 
-button {
+/**** CONTACT BUTTON ***/
+
+.contact {
     margin-left: 25%;
     margin-right: 3vw;
     padding: 0.84vh 0.7vw;
@@ -91,11 +88,14 @@ button {
     transition: all 0.5s ease 0s;
 }
 
-button:hover{
+.contact:hover{
     text-shadow: 3px 3px #dd9bad;
     font-size: 2.85vh;
 }
 
+/* ------------------------------ END NAV -------------------------------*/
+
+/* ------------------------- Tabla presupuesto  -------------------------*/
 
 .presupuesto{ 
     
@@ -107,6 +107,7 @@ button:hover{
     margin-left: 14px;
     
 } 
+
 .presupuesto td{
     padding: 0.88vh 0.7vw;
     border-radius: 50px; 
@@ -119,10 +120,111 @@ button:hover{
 .presupuesto__body td{
     font-size: 3.8vh;
     padding: 0.5vh 0.7vw;
-    background-color: rgba(0, 0, 0, 0.384);
+    background-color: #bd1a43;
     margin: 10px;
 }
 
 #empty{
     background-color: inherit;
+}
+
+/* ---------------------------- INPUT GASTOS --------------------------------*/
+
+.input-gasto{
+    margin:4vw; ;
+}
+
+.form-control {
+    width: 11vh;
+    height: 4.3vh;
+    border-radius: 50px;
+    padding: 0.5vh 0.7vw;
+    font-size: 2.1vh;
+    overflow: visible;
+    color: rgb(228, 120, 120);
+    text-shadow: 1px 1px #000000;
+    font-weight: 100;
+    border: none;
+}
+
+::placeholder {
+    
+    color: rgba(37, 34, 34, 0.425);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/***** LISTA *****/
+
+.nombre-gasto li{
+    display: inline-block;
+    padding: 0.88vh 0.8vw;
+    text-align: right;
+    background-image: linear-gradient(45deg, #7c4081 0%, #802551 100%);
+    border-radius: 50px;
+}
+
+.nombre-gasto > li:nth-child(3){
+    background: radial-gradient(circle, #086788 0%, rgb(83, 97, 134) 100%);
+}
+
+#nombre_gasto{
+    width: 30vw;
+    height: 5vh;
+}
+
+/************************* TABLE *****************************/
+
+
+/****** BUTTON ******/
+.btn-agregar{
+    background-color: inherit;
+    background-image: inherit;
+    border: none;
+    transition: ease-out 0.3s;
+}
+.btn-agregar:hover{
+    text-shadow: 3px 2px #ce7f7f;
+}
+
+.table-cell-btn-agregar{
+    background-image: linear-gradient(45deg, #7c4081 0%, #802551 100%);
+}
+
+/* TABLE */
+
+.input-gasto__table{
+    margin-left: 6.25vw;
+    border-spacing: 1vw 20px;
+}
+
+/*   TABLE DATA  */
+.input-gasto__table td{
+    font-size: 2.6vh;
+    padding: 0.4vh 0.6vw;
+    text-align: center;
+    border: 1px;
+    color: white;
+    background-color :#BD1A43;
+    border-radius: 25px;
+}
+
+.input-gasto__table > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1){
+    font-size: 2.3vh;
+}
+
+.input-gasto__table > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(1),
+.input-gasto__table > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(3){
+    font-size: 2vh;
+}
+
+.nombre-gasto > li:nth-child(2), 
+.input-gasto__table > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2),
+.input-gasto__table > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(4),
+.input-gasto__table > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(2),
+.input-gasto__table > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(4),
+.input-gasto__table > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(2),
+.input-gasto__table > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(4){
+
+    background-color: inherit;
+    background-image: inherit;
 }

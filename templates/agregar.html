@@ -22,29 +22,34 @@ block body %}
     </tbody>
 </table>
 
+
+
 <div class="input-gasto">
     <form>
         <ul class="nombre-gasto">
-            <li>Gasto</li>
-            <li><input type="text" class="form-control" id="nombre_gasto" name="nombre_gasto" placeholder="Nombre del gasto"></li>
-            <li>Gasto</li>
+            <li>Gasto:</li>
+            <li><input type="text" class="form-control" id="nombre_gasto" name="nombre_gasto" placeholder="Escriba el nombre del producto o servicio aqui..."></li>
+            <li>Diario</li>
         </ul>
 
         <table class="input-gasto__table">
             <tbody>
                 <tr>
                     <td>Categoria</td>
+                    <td><input type="text" class="form-control" id="cat" name="cat"></td>
                     <td>Precio</td>
+                    <td><input type="text" class="form-control" id="precio" name="precio"></td>
                 </tr>
                 <tr>
                     <td>Sub-<br>Categoria</td>
                     <td><input type="text" class="form-control" id="sub_cat" name="sub_cat"></td>
-                    <td>Cantidad/Peso</td>
-                    <td><input type="text" class="form-control" id="nombre_gasto" name="username"></td>
+                    <td>Cantidad/<br>Peso</td>
+                    <td><input type="text" class="form-control" id="cant" name="cant"></td>
                 </tr>
                 <tr>
                     <td>Precio</td>
-                    <td>Agregar</td>
+                    <td><input type="text" class="form-control" id="precio" name="precio"></td>
+                    <td class="table-cell-btn-agregar" ><button class="btn-agregar" type="submit">Agregar</button></td>
                 </tr>
             </tbody>
         </table>
@@ -52,6 +57,5 @@ block body %}
     </form>
 
 </div>
-
 
 {% endblock %}
