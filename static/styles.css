@@ -25,8 +25,7 @@ header{
 nav{
     display: flex;
     justify-content: flex-end;
-    align-items: center;
-    
+    text-align: center;
 }
 
 .logo{
@@ -49,7 +48,6 @@ nav{
 }
 
 .nav__links {
-    
     opacity: 0.80;
     border-radius: 50px;
     background: radial-gradient(circle, #086788 0%, rgb(83, 97, 134) 100%);
@@ -58,10 +56,9 @@ nav{
     padding: 0.88vh 0.7vw;
 }
 
-.nav__links li {
+.nav__links > li {
     display: inline-block;
     padding: 1px 18px;
-    
 }
 
 .nav__links li a {
@@ -85,7 +82,7 @@ nav{
     box-shadow: 1px 1px 6px 0 #611a82;
     border: none;
     border-radius: 50px;
-    transition: all 0.5s ease 0s;
+    transition: all 0.3s ease 0s;
 }
 
 .contact:hover{
