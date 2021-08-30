@@ -134,7 +134,10 @@ nav{
     margin:4vw; ;
 }
 
-.form-control {
+
+/***** FORM *****/
+
+.form-control { 
     width: 11vh;
     height: 4.3vh;
     border-radius: 50px;
@@ -228,3 +231,53 @@ nav{
     background-color: inherit;
     background-image: inherit;
 }
+
+
+
+/* ******************** LOG IN ****************************** */
+
+.login-container{
+    margin: 100px;
+}
+
+.form-login{
+    color: black;
+    border: none;
+}
+
+.btn-login{
+    padding: 3px;
+    background-color: rgba(132, 32, 226, 0.548);
+    border: none;
+}
+
+
+/*********************** REGISTER ****************************** */
+
+.register-container{
+    margin: 100px;
+}
+
+.register-container ul{
+    list-style-type: none;
+}
+
+.register-container ul li input{
+    margin-bottom: 20px;
+    width: 29vh;
+    height: 4.3vh;
+    border-radius: 50px;
+    padding: 0.5vh 0.7vw;
+    font-size: 2.1vh;
+    color: rgba(0, 0, 0, 0.623);
+    font-family: "Montserrat";
+}
+
+.btn-register{
+    border-radius: 50px;
+    padding: 0.5vh 0.7vw;
+    background-color: rgba(0, 0, 255, 0.712);
+
+}
+
+

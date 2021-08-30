@@ -1,9 +1,25 @@
-{% extends "layout.html" %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block title %}
-    Iniciar sesion
-{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesion</title>
+    <link href="/static/styles.css" rel="stylesheet">
+</head>
 
-{% block body %}
-    
-{% endblock %}
+<body>
+
+    <div class="login-container">
+        <form action="/login" method="post">
+
+            <input autocomplete="off" autofocus class="form-login" name="username" placeholder="Username" type="text">
+            <input class="form-login" name="password" placeholder="Password" type="password">
+
+            <button class="btn-login" type="submit">Log In</button>
+        </form>
+    </div>
+</body>
+
+</html>
