@@ -1,9 +1,30 @@
-{% extends "layout.html" %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block title %}
-    Registrarse
-{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+    <link href="/static/styles.css" rel="stylesheet">
+</head>
 
-{% block body %}
+<body>
+
+    <form action="/register" method="post">
+
+        <div class ="register-container">
+            
+            <input autocomplete="off" autofocus name="username" placeholder="Username" type="text">
+            <input  name="password" placeholder="Password" type="password">
+            <input  name="confirmation" placeholder="Repeat password" type="password">
     
-{% endblock %}
+            <button class="btn-login" type="submit">Register</button>
+
+        </div>
+        
+    </form>
+
+</body>
+
+</html>     
