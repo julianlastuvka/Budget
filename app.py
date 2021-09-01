@@ -23,6 +23,68 @@ def login_required(f):
 
     return decorated_function
 
+
+
+
+@app.route("/", methods=["GET", "POST"])
+@login_required
+def index():
+
+    username = session["username"]
+    rows = db.execute("SELECT * from history WHERE id = ?", session["user_id"])
+
+    print(f"\n\n\n  {rows}  \n\n\n\n")
+
+    return render_template("index.html", username=username, rows=rows)
+
+
+
+
+@app.route("/agregar", methods=["GET", "POST"])
+@login_required
+def agregar():
+
+    if request.method == "POST":
+        nombre_gasto = request.form.get("nombre_gasto")
+        categoria = request.form.get("cat")
+        subcat = request.form.get("sub_cat")
+        fecha = request.form.get("fecha")
+        precio = request.form.get("precio")
+        cantidad = request.form.get("cant")
+
+        #checking for blank fields.
+        if not nombre_gasto or not categoria or not subcat or not fecha or not precio or not cantidad:
+            # TO DO 
+            # MESSAGE: ONE OR MORE FIELDS LEFT BLANK
+            return render_template("agregar.html")
+        # --------------------------------------------------------
+        # check for valid precio and cantidad
+        try:
+            precio = float(precio)
+            cantidad = float(cantidad)
+        except ValueError:
+            # TODO
+            # ERROR MESSAGE: INVALID PRICE OR QUANTITY
+            return render_template("agregar.html")
+        # --------------------------------------------------------
+        # check for valid fecha
+        try:
+            dia = int(fecha[0:2])
+            mes = int(fecha[3:5])
+            anio = int(fecha[6:8])
+        except:
+            ## TODO
+            ## ERROR MESSAGE: INVALID DATE
+            return render_template("agregar.html")
+
+        db.execute("INSERT INTO history VALUES (?,?,?,?,?,?,?,?,?)", session["user_id"], nombre_gasto, categoria, subcat, cantidad, precio, fecha[0:2], fecha[3:5], fecha[6:8])
+        # TODO
+        # return success message
+        return render_template("agregar.html", nombre_gasto=nombre_gasto)
+
+    else:
+        return render_template("agregar.html")
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """Log user in"""
@@ -48,6 +110,7 @@ def login():
 
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
+        session["username"] = rows[0]["username"]
 
         # Redirect user to home page
         return redirect("/")
@@ -95,16 +158,6 @@ def register():
     else:
         return render_template("register.html")
 
-
-@app.route("/", methods=["GET", "POST"])
-@login_required
-def index():
-    return render_template("index.html")
-
-@app.route("/agregar")
-@login_required
-def agregar():
-    return render_template("agregar.html")
 
 if __name__ == "__main__":
     app.run()

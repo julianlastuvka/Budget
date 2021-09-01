@@ -1,34 +1,12 @@
 {% extends "layout.html" %} {% block title %} Agregar gastos {% endblock %} {%
 block body %}
 
-<table class="presupuesto">
-    <thead>
-        <tr>
-            <td>Presupuesto</td>
-            <td>Anual</td>
-            <td>Mensual</td>
-        </tr>
-    </thead>
-
-    <tbody>
-        <tr>
-            <td></td>
-        </tr>
-        <tr class="presupuesto__body">
-            <td id="empty"></td>
-            <td>$500.000</td>
-            <td>$50.000</td>
-        </tr>
-    </tbody>
-</table>
-
-
-
 <div class="input-gasto">
-    <form>
+    <form action="/agregar" method="POST">
         <ul class="nombre-gasto">
             <li>Gasto:</li>
-            <li><input type="text" class="form-control" id="nombre_gasto" name="nombre_gasto" placeholder="Escriba el nombre del producto o servicio aqui..."></li>
+            <li><input type="text" class="form-control" id="nombre_gasto" name="nombre_gasto"
+                    placeholder="Escriba el nombre del producto o servicio aqui..."></li>
             <li>Diario</li>
         </ul>
 
@@ -36,20 +14,21 @@ block body %}
             <tbody>
                 <tr>
                     <td>Categoria</td>
-                    <td><input type="text" class="form-control" id="cat" name="cat"></td>
-                    <td>Precio</td>
-                    <td><input type="text" class="form-control" id="precio" name="precio"></td>
+                    <td><input type="text" class="form-control" id="cat" name="cat" placeholder="Ej: Comida"></td>
+                    <td>Fecha</td>
+                    <td><input type="text" class="form-control" id="precio" name="fecha" placeholder="dd/mm/aa"></td>
                 </tr>
                 <tr>
                     <td>Sub-<br>Categoria</td>
-                    <td><input type="text" class="form-control" id="sub_cat" name="sub_cat"></td>
+                    <td><input type="text" class="form-control" id="sub_cat" name="sub_cat" placeholder="Ej: Fruta">
+                    </td>
                     <td>Cantidad/<br>Peso</td>
                     <td><input type="text" class="form-control" id="cant" name="cant"></td>
                 </tr>
                 <tr>
                     <td>Precio</td>
-                    <td><input type="text" class="form-control" id="precio" name="precio"></td>
-                    <td class="table-cell-btn-agregar" ><button class="btn-agregar" type="submit">Agregar</button></td>
+                    <td><input type="text" class="form-control" id="precio" name="precio" placeholder="$"></td>
+                    <td class="table-cell-btn-agregar"><button class="btn-agregar" type="submit">Agregar</button></td>
                 </tr>
             </tbody>
         </table>

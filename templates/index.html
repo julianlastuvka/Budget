@@ -1,9 +1,50 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Index
+Index
 {% endblock %}
 
 {% block body %}
+{% if username %}
+<h1 style="margin-left: 80px;">Welcome {{username}}!</h1>
+<br>
+{% endif%}
+
+<div class="filtrar-historial-container">
+
     
+
+
+
+
+</div>
+
+
+<!-- TABLA HISTORIAL DE GASTOS-->
+
+<div class="table-history-container">
+    <table class="table-history">
+        <thead>
+            <tr>
+                <td>Gasto</td>
+                <td>Categoria</td>
+                <td>Cantidad</td>
+                <td>Precio</td>
+                <td>Fecha</td>
+            </tr>
+        </thead>
+
+        {% for row in rows %}
+        <tr>
+            <td>{{row["nombre_gasto"]}}</td>
+            <td>{{row["categoria"]}}</td>
+            <td>{{row["cantidad"]}}</td>
+            <td>${{row["precio"]}}</td>
+            <td>{{row["dia"]}}/{{row["mes"]}}/{{row["anio"]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</div>
+
 {% endblock %}
