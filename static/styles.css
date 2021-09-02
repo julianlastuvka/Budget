@@ -28,6 +28,8 @@ nav{
     text-align: center;
 }
 
+/* ---- LOGO ----*/
+
 .logo{
     color: rgb(255, 255, 255);
     font-family: "Aharoni";
@@ -292,7 +294,7 @@ nav{
 	transform: translate(-50%, -50%);
 }
 
-.table-history {
+.table-history, .tabla-gastos-mensuales {
     width: 600px;
     border-collapse: collapse;
     overflow: hidden;
@@ -303,7 +305,7 @@ nav{
     background: linear-gradient(45deg, #49a09d, #5f2c82);
 
 }
-.table-history th, .table-history td {
+.table-history th, .table-history td, .tabla-gastos-mensuales td {
     padding: 15px;
     background-color: rgba(255,255,255,0.2);
     color: #fff;
@@ -344,13 +346,30 @@ nav{
     background-image: linear-gradient(45deg, #7c4081 0%, #802551 100%);
 }
 
+
 .tabla-fecha td{
     background-image: linear-gradient(to right top, #f04819, #ec562e, #e7633f, #e16e4f, #da795f);
-    padding: 0.88vh 0.7vw;
+    padding: 0.65vh 0.7vw;
+}
+
+.tabla-fecha tr:nth-child(3) td:nth-child(2),
+.tabla-fecha tr:nth-child(3) td:nth-child(3),
+.tabla-fecha tr:nth-child(3) td:nth-child(4){
+    background: none;
+}
+
+/* Tabla data text field */ 
+
+.table-date-text-field{
+    border-spacing: 4px 0px;
 }
 
 .table-date-text-field tr td:nth-child(2){
     padding: 0;
+}
+
+.table-date-text-field tr td:nth-child(1){
+    background-image: linear-gradient(to right top, #f04819, #ec562e, #e7633f, #e16e4f, #da795f) !important;
 }
 
 .table-date-text-field tr td .form-control{
@@ -363,11 +382,7 @@ nav{
     text-shadow: 1px 1px 1px rgb(0, 0, 0);
 }
 
-.style1{
-    background-color:red;
-    color:rgb(0, 0, 0);
-    font-size:44px;
-}
+/*  BOTON BUSCAR */
 
 .btn-filtrar-fecha{
     cursor: pointer;
@@ -376,7 +391,6 @@ nav{
 button{
     border: none;
     background: inherit;
-    
 }
 
 .blank-row td{
@@ -395,4 +409,13 @@ button{
 
 .btn-buscar:hover, .btn-filtrar-fecha:hover{
     text-shadow: 2px 2px #dd9bad;
+}
+/* FIN BOTON BUSCAR  */ 
+
+
+/* --------------- TABLA GASTOS MENSUALES ----------------*/
+
+.tabla-gastos-mensuales{
+    margin: 50px;    
+    width: 600px;
 }

@@ -31,10 +31,16 @@ def login_required(f):
 @login_required
 def index():
 
-    username = session["username"]
     rows = db.execute("SELECT * from history WHERE id = ?", session["user_id"])
 
-    return render_template("index.html", username=username, rows=rows)
+    if request.method == "POST":
+        anio = request.form.get("anio")
+        mes = request.form.get("mes")
+        dia = request.form.get("dia")
+
+        return render_template("index.html", rows=rows, dia=dia, mes=mes, anio=anio)
+
+    return render_template("index.html", rows=rows)
 
 
 

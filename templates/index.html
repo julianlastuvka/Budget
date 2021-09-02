@@ -9,21 +9,25 @@ Ver Gastos
 <div class="filtrar-historial-container">
 
     <table class="tabla-fecha">
-            <tr>
-                <td>Ver gastos:</td>
-                <td><button class="btn-filtrar-fecha" id="btn-anuales">Anuales</button></td>
-                <td><button class="btn-filtrar-fecha" id="btn-mensuales">Mensuales</button></td>
-                <td><button class="btn-filtrar-fecha" id="btn-diarios">Diarios</button></td>
-                
-            </tr>
-            <form action="/" method="POST"></form>
+        <tr>
+
+            <td>Ver gastos:</td>
+
+            <td><button class="btn-filtrar-fecha" id="btn-anuales" value="anual">Anuales</button></td>
+
+            <td><button class="btn-filtrar-fecha" id="btn-mensuales" value="mensual">Mensuales</button></td>
+
+            <td><button class="btn-filtrar-fecha" id="btn-diarios" value="diario">Diarios</button></td>
+
+        </tr>
+        <form class="row-text-fields" action="/" method="POST">
             <tr>
                 <td>Fecha:</td>
                 <td>
                     <table class="table-date-text-field">
                         <tr>
                             <td style="background: none;"><label for="anio">Anio:</label></td>
-                            <td><input type="text" class="form-control" id ="anio" name="anio" placeholder="2021"></td>
+                            <td><input type="text" class="form-control" id="anio" name="anio" placeholder="2021"></td>
                         </tr>
                     </table>
                 </td>
@@ -45,42 +49,72 @@ Ver Gastos
                 </td>
             </tr>
 
-            <tr class="blank-row">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button class="btn-buscar"">Buscar</button>
+        <tr class="blank-row">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+                <button class="btn-buscar"">Buscar</button>
                 </td>
             </tr>
-
+        </form>        
     </table>
 
 </div>
 
 
-<!-- TABLA HISTORIAL DE GASTOS-->
+<!-- TABLA HISTORIAL DE GASTOS DIARIOS-->
 
-<div class="table-history-container">
-    <table class="table-history">
-        <thead>
-            <tr>
-                <td>Gasto</td>
-                <td>Categoria</td>
-                <td>Cantidad</td>
-                <td>Precio</td>
-            </tr>
-        </thead>
+<div class=" table-history-container">
+                    <table class="table-history">
+                        <thead>
+                            <tr>
+                                <td>Gasto</td>
+                                <td>Categoria</td>
+                                <td>Cantidad</td>
+                                <td>Precio</td>
+                            </tr>
+                        </thead>
 
-        {% for row in rows %}
-        <tr>
-            <td>{{row["nombre_gasto"]}}</td>
-            <td>{{row["categoria"]}}</td>
-            <td>{{row["cantidad"]}}</td>
-            <td>${{row["precio"]}}</td>
+                        {% for row in rows %}
+                        <tr>
+                            <td>{{row["nombre_gasto"]}}</td>
+                            <td>{{row["categoria"]}}</td>
+                            <td>{{row["cantidad"]}}</td>
+                            <td>${{row["precio"]}}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+
+</div>
+
+<!-- TABLA HISTORIAL DE GASTOS MENSUALES-->
+
+<div class="tabla-gastos-mensuales-container">
+
+    {% if dia and mes and anio %}
+    <h1>DATOS DE LA FECHA</h1>
+    {% endif %}
+
+    <table class="tabla-gastos-mensuales">
+
+        {% for i in range(5) %}<tr>
+
+            {% for j in range(1,8) %}
+            <td>
+                <h1>{{i*7+j}}</h1>
+                <h2>$100</h2>
+            </td>
+            {% endfor%}
         </tr>
-        {% endfor %}
-    </table>
 
+        {% endfor%}
+
+
+    </table>
 </div>
+
+<!-- TABLA HISTORIAL DE GASTOS ANUALES-->
+
+
 {% endblock %}
