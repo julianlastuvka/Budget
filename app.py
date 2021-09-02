@@ -34,8 +34,6 @@ def index():
     username = session["username"]
     rows = db.execute("SELECT * from history WHERE id = ?", session["user_id"])
 
-    print(f"\n\n\n  {rows}  \n\n\n\n")
-
     return render_template("index.html", username=username, rows=rows)
 
 

@@ -6,6 +6,12 @@ function bt1() {
 
 function listen() {
     document.querySelector("#btn-anuales").onclick = bt1;
+
+    let input = document.querySelector(".btn-filtrar-fecha")
+    input.addEventListener("keyup", function(){
+
+        $.get("/" + input.value)
+    })
 }
 
 document.addEventListener("DOMContentLoaded", listen);

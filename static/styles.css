@@ -44,7 +44,6 @@ nav{
 .logo:hover{
     font-size: 5vw;
     cursor:pointer;
-
 }
 
 .nav__links {
@@ -83,6 +82,7 @@ nav{
     border: none;
     border-radius: 50px;
     transition: all 0.3s ease 0s;
+    cursor:pointer;
 }
 
 .contact:hover{
@@ -99,7 +99,7 @@ nav{
     text-align: center;
     color: white;
     text-shadow: 1px 1px #000000;
-    border-spacing: 3.6vw 10px;
+    border-spacing: 3.0vw 5px;
     margin-top: 50px;
     margin-left: 14px;
     
@@ -376,5 +376,23 @@ nav{
 button{
     border: none;
     background: inherit;
-    po
+    
+}
+
+.blank-row td{
+    background: none !important;
+}
+
+.btn-buscar{
+    background-image: linear-gradient(45deg, #8baaaa 0%, #802551 100%);
+    box-shadow: 1px 1px 6px 0 #611a82;
+    padding: 0.84vh 0.7vw;
+    border-radius: 25px;
+    font-size: 3.5vh;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+}
+
+.btn-buscar:hover, .btn-filtrar-fecha:hover{
+    text-shadow: 2px 2px #dd9bad;
 }
