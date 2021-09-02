@@ -14,17 +14,39 @@ Ver Gastos
 
     <table class="tabla-fecha">
             <tr>
-                <td>Gastos:</td>
-                <td>Anuales</td>
-                <td>Mensuales</td>
-                <td>Diarios</td>
+                <td>Ver gastos:</td>
+                <td><button class="btn-filtrar-fecha" id="btn-anuales">Anuales</button></td>
+                <td><button class="btn-filtrar-fecha" id="btn-mensuales">Mensuales</button></td>
+                <td><button class="btn-filtrar-fecha" id="btn-diarios">Diarios</button></td>
+                <h1 id="foo">testing js click</h1>
             </tr>
-
+            <form action="/" method="POST"></form>
             <tr>
                 <td>Fecha:</td>
-                <td>Anio</td>
-                <td>Mes</td>
-                <td>Dia</td>
+                <td>
+                    <table class="table-date-text-field">
+                        <tr>
+                            <td style="background: none;"><label for="anio">Anio:</label></td>
+                            <td><input type="text" class="form-control" id ="anio" name="anio" placeholder="2021"></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="table-date-text-field">
+                        <tr>
+                            <td style="background: none;"><label for="mes">Mes:</label></td>
+                            <td><input type="text" class="form-control" id="mes" name="mes" placeholder="08"></td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table class="table-date-text-field">
+                        <tr>
+                            <td style="background: none;"><label for="dia">Dia:</label></td>
+                            <td><input type="text" class="form-control" id="dia" name="dia" placeholder="25"></td>
+                        </tr>
+                    </table>
+                </td>
             </tr>
 
     </table>
@@ -58,5 +80,4 @@ Ver Gastos
     </table>
 
 </div>
-
 {% endblock %}

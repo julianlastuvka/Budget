@@ -142,13 +142,14 @@ nav{
     width: 11vh;
     height: 4.3vh;
     border-radius: 50px;
-    padding: 0.5vh 0.7vw;
     font-size: 2.1vh;
     overflow: visible;
     color: rgb(228, 120, 120);
     text-shadow: 1px 1px #000000;
     font-weight: 100;
     border: none;
+    text-align: left;
+    text-indent: 10px;
 }
 
 .form-control::placeholder {
@@ -346,4 +347,34 @@ nav{
 .tabla-fecha td{
     background-image: linear-gradient(to right top, #f04819, #ec562e, #e7633f, #e16e4f, #da795f);
     padding: 0.88vh 0.7vw;
+}
+
+.table-date-text-field tr td:nth-child(2){
+    padding: 0;
+}
+
+.table-date-text-field tr td .form-control{
+    width: 5vh;
+    border-radius: 18px;
+    font-size: 2.7vh;
+    text-align: center;
+    text-indent: 0px;
+    color: rgb(233, 113, 157);
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
+}
+
+.style1{
+    background-color:red;
+    color:rgb(0, 0, 0);
+    font-size:44px;
+}
+
+.btn-filtrar-fecha{
+    cursor: pointer;
+}
+
+button{
+    border: none;
+    background: inherit;
+    po
 }
