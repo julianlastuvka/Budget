@@ -11,6 +11,13 @@ function mostrar_diario() {
     const tabla_mensuales = document.querySelector(".tabla-gastos-mensuales-container")
     const tabla_anuales = document.querySelector(".tabla-gastos-anuales-container")
 
+
+    const field_mes = document.querySelector("#tabla-field-mes")
+    const field_dia = document.querySelector("#tabla-field-dia")
+
+    field_mes.style.display = "block";
+    field_dia.style.display = "block";
+
     tabla_mensuales.style.display = "none";
     tabla_anuales.style.display = "none";
     tabla_diarios.style.display = "block";
@@ -23,6 +30,12 @@ function mostrar_mensual() {
     const tabla_mensuales = document.querySelector(".tabla-gastos-mensuales-container")
     const tabla_anuales = document.querySelector(".tabla-gastos-anuales-container")
 
+    const field_mes = document.querySelector("#tabla-field-mes")
+    const field_dia = document.querySelector("#tabla-field-dia")
+
+    field_mes.style.display = "block";
+    field_dia.style.display = "none";
+
     tabla_mensuales.style.display = "block";
     tabla_anuales.style.display = "none";
     tabla_diarios.style.display = "none";
@@ -33,9 +46,17 @@ function mostrar_anual() {
     const tabla_mensuales = document.querySelector(".tabla-gastos-mensuales-container")
     const tabla_anuales = document.querySelector(".tabla-gastos-anuales-container")
 
+    const field_mes = document.querySelector("#tabla-field-mes")
+    const field_dia = document.querySelector("#tabla-field-dia")
+
+    field_mes.style.display = "none";
+    field_dia.style.display = "none";
+
     tabla_mensuales.style.display = "none";
     tabla_anuales.style.display = "block";
     tabla_diarios.style.display = "none";
+
+
 }
 
 function listen() {

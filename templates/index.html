@@ -24,7 +24,7 @@ Ver Gastos
             <tr>
                 <td>Fecha:</td>
                 <td>
-                    <table class="table-date-text-field">
+                    <table class="table-date-text-field" id="tabla-field-anio">
                         <tr>
                             <td style="background: none;"><label for="anio">Anio:</label></td>
                             <td><input type="text" class="form-control" id="anio" name="anio" placeholder="2021"></td>
@@ -32,7 +32,7 @@ Ver Gastos
                     </table>
                 </td>
                 <td>
-                    <table class="table-date-text-field">
+                    <table class="table-date-text-field" id="tabla-field-mes">
                         <tr>
                             <td style="background: none;"><label for="mes">Mes:</label></td>
                             <td><input type="text" class="form-control" id="mes" name="mes" placeholder="08"></td>
@@ -40,7 +40,7 @@ Ver Gastos
                     </table>
                 </td>
                 <td>
-                    <table class="table-date-text-field">
+                    <table class="table-date-text-field" id="tabla-field-dia"> 
                         <tr>
                             <td style="background: none;"><label for="dia">Dia:</label></td>
                             <td><input type="text" class="form-control" id="dia" name="dia" placeholder="25"></td>
@@ -54,7 +54,7 @@ Ver Gastos
                 <td></td>
                 <td></td>
                 <td>
-                    <button class="btn-buscar"">Buscar</button>
+                    <button class="btn-buscar">Buscar</button>
                 </td>
             </tr>
         </form>        
@@ -67,7 +67,7 @@ Ver Gastos
 
 <div class=" table-history-container">
                         <h2>
-                            Gastos diarios de la fecha dd/mm/aa:
+                            Gastos del dia {{dia}}/{{mes}}/{{anio}}
                         </h2>
                         <table class="table-history">
                             <thead>
@@ -99,7 +99,7 @@ Ver Gastos
     <h1>DATOS DE LA FECHA</h1>
     {% endif %}
 
-    <h2>Gastos del mes de {mes}:</h2>
+    <h2>Gastos del mes {{mes}} / {{anio}}</h2>
 
     <table class="tabla-gastos-mensuales">
 
