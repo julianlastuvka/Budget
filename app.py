@@ -4,6 +4,8 @@ from cs50 import SQL
 from werkzeug.security import check_password_hash, generate_password_hash
 from functools import wraps
 
+from datetime import datetime
+
 
 app = Flask(__name__)
 app.secret_key = 'thisisatemporarykey849489849489489+4'
@@ -31,16 +33,22 @@ def login_required(f):
 @login_required
 def index():
 
-    rows = db.execute("SELECT * from history WHERE id = ?", session["user_id"])
-
     if request.method == "POST":
         anio = request.form.get("anio")
         mes = request.form.get("mes")
         dia = request.form.get("dia")
 
+        #CHECK FOR VALID INPUT / TODO
+        
+        rows = db.execute("SELECT * from history WHERE id = ?", session["user_id"])
+
         return render_template("index.html", rows=rows, dia=dia, mes=mes, anio=anio)
 
-    return render_template("index.html", rows=rows)
+    date = datetime.now()
+    anio, mes, dia = date.year, date.month, date.day
+    rows = db.execute("SELECT * from history WHERE id = ?", session["user_id"])
+
+    return render_template("index.html", rows=rows, anio=anio, mes=mes, dia=dia)
 
 
 
