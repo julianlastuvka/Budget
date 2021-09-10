@@ -294,7 +294,7 @@ nav{
 	transform: translate(-50%, -50%);
 }
 
-.table-history, .tabla-gastos-mensuales {
+.table-history, .tabla-gastos-mensuales, .tabla-gastos-anuales {
     width: 600px;
     border-collapse: collapse;
     overflow: hidden;
@@ -305,7 +305,7 @@ nav{
     background: linear-gradient(45deg, #49a09d, #5f2c82);
 
 }
-.table-history th, .table-history td, .tabla-gastos-mensuales td {
+.table-history th, .table-history td, .tabla-gastos-mensuales td, .tabla-gastos-anuales td {
     padding: 15px;
     background-color: rgba(255,255,255,0.2);
     color: #fff;

@@ -49,12 +49,12 @@ Ver Gastos
                 </td>
             </tr>
 
-        <tr class="blank-row">
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-                <button class="btn-buscar"">Buscar</button>
+            <tr class="blank-row">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <button class="btn-buscar"">Buscar</button>
                 </td>
             </tr>
         </form>        
@@ -66,25 +66,28 @@ Ver Gastos
 <!-- TABLA HISTORIAL DE GASTOS DIARIOS-->
 
 <div class=" table-history-container">
-                    <table class="table-history">
-                        <thead>
-                            <tr>
-                                <td>Gasto</td>
-                                <td>Categoria</td>
-                                <td>Cantidad</td>
-                                <td>Precio</td>
-                            </tr>
-                        </thead>
+                        <h2>
+                            Gastos diarios de la fecha dd/mm/aa:
+                        </h2>
+                        <table class="table-history">
+                            <thead>
+                                <tr>
+                                    <td>Gasto</td>
+                                    <td>Categoria</td>
+                                    <td>Cantidad</td>
+                                    <td>Precio</td>
+                                </tr>
+                            </thead>
 
-                        {% for row in rows %}
-                        <tr>
-                            <td>{{row["nombre_gasto"]}}</td>
-                            <td>{{row["categoria"]}}</td>
-                            <td>{{row["cantidad"]}}</td>
-                            <td>${{row["precio"]}}</td>
-                        </tr>
-                        {% endfor %}
-                    </table>
+                            {% for row in rows %}
+                            <tr>
+                                <td>{{row["nombre_gasto"]}}</td>
+                                <td>{{row["categoria"]}}</td>
+                                <td>{{row["cantidad"]}}</td>
+                                <td>${{row["precio"]}}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
 
 </div>
 
@@ -95,6 +98,8 @@ Ver Gastos
     {% if dia and mes and anio %}
     <h1>DATOS DE LA FECHA</h1>
     {% endif %}
+
+    <h2>Gastos del mes de {mes}:</h2>
 
     <table class="tabla-gastos-mensuales">
 
@@ -115,6 +120,71 @@ Ver Gastos
 </div>
 
 <!-- TABLA HISTORIAL DE GASTOS ANUALES-->
+
+<div class="tabla-gastos-anuales-container">
+
+    <table class="tabla-gastos-anuales">
+
+        <thead>
+            <tr>
+                <th>
+                    Mes
+                </th>
+
+                <th>
+                    Gasto
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>Enero</td>
+                <td>$49.351</td>
+            </tr>
+            <tr>
+                <td>Febrero</td>
+
+            </tr>
+            <tr>
+                <td>Marzo</td>
+            </tr>
+
+            <tr>
+                <td>Abril</td>
+            </tr>
+
+            <tr>
+                <td>Mayo</td>
+            </tr>
+            <tr>
+                <td>Junio</td>
+            </tr>
+            <tr>
+                <td>Julio</td>
+            </tr>
+            <tr>
+                <td>Agosto</td>
+            </tr>
+            <tr>
+                <td>Septiembre</td>
+            </tr>
+            <tr>
+                <td>Octubre</td>
+            </tr>
+            <tr>
+                <td>Noviembre</td>
+            </tr>
+            <tr>
+                <td>Diciembre</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
 
 
 {% endblock %}
