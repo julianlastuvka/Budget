@@ -21,7 +21,7 @@ Ver Gastos
                 <td>
                     <input type="radio" class="btn-filtrar-fecha" id="btn-mensuales" value="mensual" name="fecha">
                     <label for="btn-mensuales">Mensuales</label><br>
-                    
+
                 </td>
 
                 <td>
@@ -89,11 +89,13 @@ Ver Gastos
         </thead>
 
         {% for row in rows %}
+        
         <tr>
             <td>{{row["nombre_gasto"]}}</td>
-            <td>{{row["categoria"]}}</td>       
+            <td>{{row["categoria"]}}</td>
             <td>${{row["precio"]}}</td>
         </tr>
+
         {% endfor %}
 
     </table>
@@ -106,22 +108,61 @@ Ver Gastos
 
     <h2>Gastos del mes {{mes}} / {{anio}}</h2>
 
+    {%if gastos_mensuales%}
+
     <table class="tabla-gastos-mensuales">
 
-        {% for i in range(5) %}<tr>
-
-            {% for j in range(1,8) %}
+        <tr>
+            {% for dia in range(1,8)%}
             <td>
-                <h1>{{i*7+j}}</h1>
-                <h2>$100</h2>
+                <h2>{{dia}}</h2>
+                <h1>$</h1>
+                <h1>{{gastos_mensuales[dia]}}</h1>
             </td>
-            {% endfor%}
+            {%endfor%}
+        </tr>
+        <tr>
+            {% for dia in range(8,15)%}
+            <td>
+                <h2>{{dia}}</h2>
+                <h1>$</h1>
+                <h1>{{gastos_mensuales[dia]}}</h1>
+            </td>
+            {%endfor%}
+        </tr>
+        <tr>
+            {% for dia in range(15,22)%}
+            <td>
+                <h2>{{dia}}</h2>
+                <h1>$</h1>
+                <h1>{{gastos_mensuales[dia]}}</h1>
+            </td>
+            {%endfor%}
         </tr>
 
-        {% endfor%}
+        <tr>
+            {% for dia in range(22,29)%}
+            <td>
+                <h2>{{dia}}</h2>
+                <h1>$</h1>
+                <h1>{{gastos_mensuales[dia]}}</h1>
+            </td>
+            {%endfor%}
+        </tr>
 
+        <tr>
+            {% for dia in range(28,32) %}
+            <td>
+                <h2>{{dia}}</h2>
+                <h1>$</h1>
+                <h1>{{gastos_mensuales[dia]}}</h1>
+            </td>
+            {% endfor %}
+        </tr>
 
     </table>
+
+    {%endif%}
 </div>
 
 <!-- TABLA HISTORIAL DE GASTOS ANUALES-->

@@ -26,23 +26,60 @@ def login_required(f):
 
     return decorated_function
 
+def procesar_gastos_mensuales(rows):
+    j = 0
+    gastos_diarios_del_mes = {}
+
+    for dia in range(1,32):
+    
+        total_dia = 0
+        while rows[j]["dia"] == dia:
+        
+            total_dia += int(rows[j]["precio"])
+        
+            if j < len(rows) - 1:
+                j+= 1
+            else:
+                break
+        
+        gastos_diarios_del_mes[dia] = total_dia 
+
+    return gastos_diarios_del_mes
+
 
 
 
 @app.route("/", methods=["GET", "POST"])
 @login_required
 def index():
-
+    gastos_mensuales = {}
     if request.method == "POST":
+
         anio = request.form.get("anio")
         mes = request.form.get("mes")
         dia = request.form.get("dia")
 
         #CHECK FOR VALID INPUT / TODO
 
-        rows = db.execute("SELECT * from history WHERE id = ? AND anio = ?", session["user_id"], anio)
+        #Daily history
+
+        if anio and mes and dia:
+            rows = db.execute("SELECT * from history WHERE id = ? AND anio = ? AND mes = ? AND dia = ?", session["user_id"], anio, mes, dia)
         
-        return render_template("index.html", rows=rows, dia=dia, mes=mes, anio=anio)
+        elif anio and mes:
+            rows = db.execute("SELECT dia, mes, precio from history WHERE id = ? AND anio = ? AND mes = ? ORDER BY dia", session["user_id"], anio, mes)
+
+            gastos_mensuales = procesar_gastos_mensuales(rows)
+
+
+
+        elif anio:
+            rows = db.execute("SELECT * from history WHERE id = ? AND anio = ?", session["user_id"], anio)
+            print("\n\n", rows)
+
+        
+
+        return render_template("index.html", rows=rows, dia=dia, mes=mes, anio=anio, gastos_mensuales=gastos_mensuales)
 
     date = datetime.now()
     anio, mes, dia = date.year, date.month, date.day
