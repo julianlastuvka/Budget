@@ -16,16 +16,10 @@ body{
 }
 
 header{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 10fr 7fr 3fr;
     align-items: center;
     padding: 2% 3%;
-}
-
-nav{
-    display: flex;
-    justify-content: flex-end;
-    text-align: center;
 }
 
 /* ---- LOGO ----*/
@@ -40,6 +34,7 @@ nav{
     text-align: center;
     text-shadow: 3px 10px 10px #C86F86;
     transition: all 0.9s ease 0s;
+    justify-self: left;
     
 }
 
@@ -55,6 +50,7 @@ nav{
     box-shadow: 2px 1px 10px 0 #1A6582;
     text-align: center;
     padding: 0.88vh 0.7vw;
+    
 }
 
 .nav__links > li {
@@ -85,6 +81,7 @@ nav{
     border-radius: 50px;
     transition: all 0.3s ease 0s;
     cursor:pointer;
+    justify-self: right;
 }
 
 .contact:hover{
@@ -295,7 +292,7 @@ nav{
 }
 
 .table-history, .tabla-gastos-mensuales, .tabla-gastos-anuales {
-    width: 600px;
+    width: 30vw;
     border-collapse: collapse;
     overflow: hidden;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
@@ -352,9 +349,9 @@ nav{
     padding: 0.65vh 0.7vw;
 }
 
-.tabla-fecha tr:nth-child(3) td:nth-child(2),
-.tabla-fecha tr:nth-child(3) td:nth-child(3),
-.tabla-fecha tr:nth-child(3) td:nth-child(4){
+.tabla-fecha tr:nth-child(2) td:nth-child(2),
+.tabla-fecha tr:nth-child(2) td:nth-child(3),
+.tabla-fecha tr:nth-child(2) td:nth-child(4){
     background: none;
 }
 
@@ -415,7 +412,105 @@ button{
 
 /* --------------- TABLA GASTOS MENSUALES ----------------*/
 
+.tabla-gastos-mensuales-container{
+    display: block;
+}
+
 .tabla-gastos-mensuales{
     margin: 50px;    
     width: 600px;
+}
+
+
+/* --------------END----------------------*/
+
+
+label{
+    cursor: pointer;
+}
+
+/* TABLA GASTOS ANUALES*/
+
+.tabla-gastos-anuales-container,  .table-history-container{
+    display: none;
+}
+
+@media screen and (max-width: 500px){
+
+    
+    header{
+        display: grid;
+        grid-template-columns: 7fr 3fr;
+        grid-template-rows: 70px 80px;
+        margin: 0px;
+    }
+
+    .logo{
+        justify-self: center;
+        grid-column: 1/2;
+        font-size: 13vw;
+    }
+
+    .contact{
+        grid-column: 2/3;
+        grid-row: 1/2;
+    }
+
+    nav{
+        grid-column: 1/3;
+        grid-row: 2/3;
+    }
+
+    nav ul{
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        align-items: center;
+    }
+
+    nav li{
+        padding-top: 1px;
+        padding-bottom: 10px;
+    }
+    nav li a{
+        text-align: center;
+        font-size: 2.4vh;
+    }
+    
+    .nav__links > li:nth-child(1) > a{
+
+    }
+
+    .nav__links > li:nth-child(2) >{
+
+    }
+
+    .nav__links{
+        padding: 0px;
+    }
+
+    .tabla-fecha{
+        margin-left: 0px;
+    }
+
+    .table-history, .tabla-gastos-mensuales, .tabla-gastos-anuales {
+        width: 75vw;
+    }
+
+    .tabla-fecha td label, .tabla-fecha td{
+        font-size: 1.75vh;
+    }
+
+    .btn-buscar{
+        font-size: 2.45vh;
+    }
+
+    input[type=radio]{
+        display: none;
+    }
+
+    
+
+
+    
+
 }

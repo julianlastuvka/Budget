@@ -39,6 +39,9 @@ function mostrar_mensual() {
     tabla_mensuales.style.display = "block";
     tabla_anuales.style.display = "none";
     tabla_diarios.style.display = "none";
+
+    let value_diario = document.querySelector("#dia").value = "";
+    
 }
 
 function mostrar_anual() {
@@ -56,6 +59,8 @@ function mostrar_anual() {
     tabla_anuales.style.display = "block";
     tabla_diarios.style.display = "none";
 
+    let value_diario = document.querySelector("#dia").value = "";
+    let value_mensual = document.querySelector("#mes").value = "";
 
 }
 

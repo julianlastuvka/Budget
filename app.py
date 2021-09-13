@@ -39,15 +39,15 @@ def index():
         dia = request.form.get("dia")
 
         #CHECK FOR VALID INPUT / TODO
-        
-        rows = db.execute("SELECT * from history WHERE id = ?", session["user_id"])
 
+        rows = db.execute("SELECT * from history WHERE id = ? AND anio = ?", session["user_id"], anio)
+        
         return render_template("index.html", rows=rows, dia=dia, mes=mes, anio=anio)
 
     date = datetime.now()
     anio, mes, dia = date.year, date.month, date.day
-    rows = db.execute("SELECT * from history WHERE id = ?", session["user_id"])
-
+    rows = db.execute("SELECT * from history WHERE id = ? AND anio = ? AND mes = ?", session["user_id"], anio, mes)
+    
     return render_template("index.html", rows=rows, anio=anio, mes=mes, dia=dia)
 
 
@@ -84,13 +84,13 @@ def agregar():
         try:
             dia = int(fecha[0:2])
             mes = int(fecha[3:5])
-            anio = int(fecha[6:8])
+            anio = int(fecha[6:10])
         except:
             ## TODO
             ## ERROR MESSAGE: INVALID DATE
             return render_template("agregar.html")
 
-        db.execute("INSERT INTO history VALUES (?,?,?,?,?,?,?,?,?)", session["user_id"], nombre_gasto, categoria, subcat, cantidad, precio, fecha[0:2], fecha[3:5], fecha[6:8])
+        db.execute("INSERT INTO history VALUES (?,?,?,?,?,?,?,?,?)", session["user_id"], nombre_gasto, categoria, subcat, cantidad, precio, dia, mes, anio)
         # TODO
         # return success message
         return render_template("agregar.html", nombre_gasto=nombre_gasto)
