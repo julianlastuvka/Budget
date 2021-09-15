@@ -45,9 +45,7 @@ def procesar_gastos_mensuales(rows):
         gastos_diarios_del_mes[dia] = total_dia 
 
     return gastos_diarios_del_mes
-
-
-
+    
 
 @app.route("/", methods=["GET", "POST"])
 @login_required

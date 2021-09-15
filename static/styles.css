@@ -432,6 +432,8 @@ button{
     border: 2px rgba(0, 0, 0, 0.192) inset;
     width: 60px;
     border-radius: 15px;
+    background-color: rgb(247, 241, 234);
+    position: relative;
     
 }
 
@@ -440,12 +442,25 @@ button{
     text-align: right;
     margin-right: 4px;
     font-family:Arial, Helvetica, sans-serif;
+    text-shadow: 1px 1px 2px rgb(248, 2, 43);
+    position: relative;
+    bottom: 1.4vw;
+}
+
+.tabla-gastos-mensuales td h1{
+    color:rgb(68, 65, 65);
+    text-shadow: 2px 2px 2px rgb(241, 140, 157);
+    font-size: 3.2vh;
+    position: absolute;
+    left: 25px;
+    bottom: 1px;
 }
 
 .tabla-gastos-mensuales tr td h1:nth-child(2){
     color: rgb(2, 138, 9);
     margin-left: 4px;
     margin-right: 0px;
+    left: 5px;
 }
 
 .tabla-gastos-mensuales tr td h1{
@@ -538,10 +553,6 @@ label{
     input[type=radio]{
         display: none;
     }
-
-    
-
-
     
 
 }
