@@ -29,6 +29,7 @@ def login_required(f):
 def procesar_gastos_mensuales(rows):
     j = 0
     gastos_diarios_del_mes = {}
+    gasto_total_mes = 0
 
     for dia in range(1,32):
     
@@ -43,14 +44,38 @@ def procesar_gastos_mensuales(rows):
                 break
         
         gastos_diarios_del_mes[dia] = total_dia 
+        gasto_total_mes += total_dia
 
-    return gastos_diarios_del_mes
+    return gastos_diarios_del_mes, gasto_total_mes
+
+
+
+def procesar_gastos_anuales(anio):
+
+    gastos_por_mes = {}
+    gasto_total_anio = 0
+
+    for mes in range(1, 13):
+
+        row = db.execute("SELECT * FROM history WHERE id = ? AND anio = ? AND mes = ?", session["user_id"], anio, mes)
+
+        print(f"\n\n\nmes{mes}:  {row}\n\n\n")
+
+        if row:
+            n, gasto_total_mes = procesar_gastos_mensuales(row)
+        else:
+            gasto_total_mes = 0
+
+        gastos_por_mes[mes] = gasto_total_mes
+        gasto_total_anio += gasto_total_mes
+
+    return gastos_por_mes, gasto_total_anio
     
 
 @app.route("/", methods=["GET", "POST"])
 @login_required
 def index():
-    gastos_mensuales = {}
+
     if request.method == "POST":
 
         anio = request.form.get("anio")
@@ -60,30 +85,26 @@ def index():
         #CHECK FOR VALID INPUT / TODO
 
         #Daily history
-
         if anio and mes and dia:
             rows = db.execute("SELECT * from history WHERE id = ? AND anio = ? AND mes = ? AND dia = ?", session["user_id"], anio, mes, dia)
         
+        # Montly history
         elif anio and mes:
             rows = db.execute("SELECT dia, mes, precio from history WHERE id = ? AND anio = ? AND mes = ? ORDER BY dia", session["user_id"], anio, mes)
+            gastos_mensuales, gasto_total_mes = procesar_gastos_mensuales(rows)
 
-            gastos_mensuales = procesar_gastos_mensuales(rows)
-
-
-
+        # Yearly history
         elif anio:
-            rows = db.execute("SELECT * from history WHERE id = ? AND anio = ?", session["user_id"], anio)
-            print("\n\n", rows)
+            gastos_por_mes, gasto_total_anio = procesar_gastos_anuales(anio)
 
-        
-
-        return render_template("index.html", rows=rows, dia=dia, mes=mes, anio=anio, gastos_mensuales=gastos_mensuales)
+            return render_template("index.html", dia=dia, mes=mes, anio=anio, gastos_por_mes=gastos_por_mes, gasto_total_anio=gasto_total_anio)
 
     date = datetime.now()
     anio, mes, dia = date.year, date.month, date.day
     rows = db.execute("SELECT * from history WHERE id = ? AND anio = ? AND mes = ?", session["user_id"], anio, mes)
-    
-    return render_template("index.html", rows=rows, anio=anio, mes=mes, dia=dia)
+    gastos_mensuales, gasto_total_mes = procesar_gastos_mensuales(rows)
+
+    return render_template("index.html", rows=rows, anio=anio, mes=mes, dia=dia, gastos_mensuales=gastos_mensuales)
 
 
 

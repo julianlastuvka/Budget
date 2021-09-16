@@ -44,8 +44,12 @@ Ver Gastos
                 <td>
                     <table class="table-date-text-field" id="tabla-field-mes">
                         <tr>
-                            <td style="background: none;"><label for="mes">Mes:</label></td>
-                            <td><input type="text" class="form-control" id="mes" name="mes" placeholder="08"></td>
+                            <td style="background: none;">
+                                <label for="mes">Mes:</label>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" id="mes" name="mes" placeholder="08">
+                            </td>
                         </tr>
                     </table>
                 </td>
@@ -167,6 +171,8 @@ Ver Gastos
 
 <!-- TABLA HISTORIAL DE GASTOS ANUALES-->
 
+{% if gasto_total_anio  %}
+
 <div class="tabla-gastos-anuales-container">
 
     <table class="tabla-gastos-anuales">
@@ -187,34 +193,41 @@ Ver Gastos
 
             <tr>
                 <td>Enero</td>
-                <td>$49.351</td>
+                <td>$ {{gastos_por_mes[1]}}</td>
             </tr>
             <tr>
                 <td>Febrero</td>
-
+                <td>$ {{gastos_por_mes[2]}}</td>
             </tr>
             <tr>
                 <td>Marzo</td>
+                <td>$ {{gastos_por_mes[3]}}</td>
             </tr>
 
             <tr>
                 <td>Abril</td>
+                <td>$ {{gastos_por_mes[4]}}</td>
             </tr>
 
             <tr>
                 <td>Mayo</td>
+                <td>$ {{gastos_por_mes[5]}}</td>
             </tr>
             <tr>
                 <td>Junio</td>
+                <td>$ {{gastos_por_mes[6]}}</td>
             </tr>
             <tr>
                 <td>Julio</td>
+                <td>$ {{gastos_por_mes[7]}}</td>
             </tr>
             <tr>
                 <td>Agosto</td>
+                <td>$ {{gastos_por_mes[8]}}</td>
             </tr>
             <tr>
                 <td>Septiembre</td>
+                <td>$ {{gastos_por_mes[9]}}</td>
             </tr>
             <tr>
                 <td>Octubre</td>
@@ -228,9 +241,16 @@ Ver Gastos
 
         </tbody>
 
+        <footer>
+            <tr>
+                <td>Total</td>
+                <td>$ {{gasto_total_anio}}</td>
+            </tr>
+        </footer>
     </table>
-
 </div>
+
+{% endif %}
 
 
 {% endblock %}

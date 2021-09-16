@@ -34,18 +34,3 @@ def procesar_gastos_mensuales(rows):
 
     return gastos_diarios_del_mes, gasto_total_mes
 
-def procesar_gastos_anuales(anio):
-
-    gastos_por_mes = {}
-    gasto_total_anio = 0
-
-    for mes in range(1, 13):
-
-        row = db.execute("SELECT * FROM history WHERE id = ? AND anio = ? AND mes = ?", session["user_id"], anio, mes)
-
-        n, gasto_total_mes = procesar_gastos_mensuales(row)
-
-        gastos_por_mes[mes] = gasto_total_mes
-        gasto_total_anio += gasto_total_mes
-
-    return gastos_por_mes, gasto_total_anio
