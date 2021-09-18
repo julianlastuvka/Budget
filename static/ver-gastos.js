@@ -18,10 +18,6 @@ function mostrar_diario() {
     field_mes.style.display = "block";
     field_dia.style.display = "block";
 
-    tabla_mensuales.style.display = "none";
-    tabla_anuales.style.display = "none";
-    tabla_diarios.style.display = "block";
-
 }
 
 function mostrar_mensual() {
@@ -35,10 +31,6 @@ function mostrar_mensual() {
 
     field_mes.style.display = "block";
     field_dia.style.display = "none";
-
-    tabla_mensuales.style.display = "block";
-    tabla_anuales.style.display = "none";
-    tabla_diarios.style.display = "none";
 
     let value_diario = document.querySelector("#dia").value = "";
     
@@ -54,10 +46,6 @@ function mostrar_anual() {
 
     field_mes.style.display = "none";
     field_dia.style.display = "none";
-
-    tabla_mensuales.style.display = "none";
-    tabla_anuales.style.display = "block";
-    tabla_diarios.style.display = "none";
 
     let value_diario = document.querySelector("#dia").value = "";
     let value_mensual = document.querySelector("#mes").value = "";

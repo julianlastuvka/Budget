@@ -414,13 +414,14 @@ button{
 
 .tabla-gastos-mensuales-container{
     display: block;
+    margin: 50px; 
 }
 
 .tabla-gastos-mensuales{
-    margin: 50px;    
-    width: 50vw;
+    
+    width: 55vw;
     height: 32vw;
-    border-spacing: 0.8em 0.8em;
+    border-spacing: 0.5em 0.5em;
     border-collapse:initial;
     background-color: rgba(233, 82, 82, 0.048);
     border-radius: 15px;
@@ -430,7 +431,7 @@ button{
     padding: 0px;
     box-shadow: none;
     border: 2px rgba(0, 0, 0, 0.192) inset;
-    width: 60px;
+    width: 65px;
     border-radius: 15px;
     background-color: rgb(247, 241, 234);
     position: relative;
@@ -444,7 +445,8 @@ button{
     font-family:Arial, Helvetica, sans-serif;
     text-shadow: 1px 1px 2px rgb(248, 2, 43);
     position: relative;
-    bottom: 1.4vw;
+    font-size: 80%;
+    bottom: 0.85vw;
 }
 
 .tabla-gastos-mensuales td h1{
@@ -452,15 +454,16 @@ button{
     text-shadow: 2px 2px 2px rgb(241, 140, 157);
     font-size: 3.2vh;
     position: absolute;
-    left: 25px;
-    bottom: 1px;
+    left: 23%;
+    bottom: 0px;
+    font-size: 90%;
 }
 
 .tabla-gastos-mensuales tr td h1:nth-child(2){
     color: rgb(2, 138, 9);
     margin-left: 4px;
     margin-right: 0px;
-    left: 5px;
+    left: 1px;
 }
 
 .tabla-gastos-mensuales tr td h1{
@@ -473,13 +476,10 @@ label{
     cursor: pointer;
 }
 
-/* TABLA GASTOS ANUALES*/
 
-.tabla-gastos-anuales-container,  .table-history-container{
-    display: none;
-}
 
 /*       MEDIA      */
+
 
 @media screen and (max-width: 500px){
 
@@ -538,12 +538,45 @@ label{
         margin-left: 0px;
     }
 
+    .tabla-gastos-mensuales-container{
+        margin: 0;
+    }
+
     .table-history, .tabla-gastos-mensuales, .tabla-gastos-anuales {
-        width: 75vw;
+        width: 100%;
+    }
+
+    /*      Gastos mensuales tabla        */
+
+
+    .tabla-gastos-mensuales{
+        height: 400px;
+        table-layout: fixed;
+        border-spacing: 0.3em 0.5em;
+    }
+
+    .tabla-gastos-mensuales td{
+        width: 15%;
+        height: 15%;
+    }
+
+    .tabla-gastos-mensuales td h1{
+        left: 20%;
+    }
+
+    .tabla-gastos-mensuales tr td h1:nth-child(2){
+        margin-left: 1px;
+        left: 1px;
+    }
+
+    .tabla-gastos-mensuales tr td h2{
+        font-size: 70%;
+        bottom: 25%;
     }
 
     .tabla-fecha td label, .tabla-fecha td{
-        font-size: 1.75vh;
+        font-size: 2.2vh;
+        padding: 0px;
     }
 
     .btn-buscar{
@@ -553,6 +586,34 @@ label{
     input[type=radio]{
         display: none;
     }
-    
 
+    /* AGREGAR GASTOS INPUT */
+
+    .input-gasto{
+        margin-top: 60px;
+    }
+
+    #nombre_gasto{
+        width: 100%;
+    }
+}
+
+
+@media screen and (min-width: 500px) and (max-width: 1100px){
+
+    .tabla-gastos-mensuales-container, .tabla-fecha{
+        margin-left: 0;
+    }
+    
+    .tabla-gastos-mensuales{
+        height: 600px;
+        width: 95vw;
+        table-layout: fixed;
+        border-spacing: 0.3em 0.5em;
+    }
+
+    .tabla-gastos-mensuales tr td h2{
+        bottom: 2vw;
+    }
+    
 }

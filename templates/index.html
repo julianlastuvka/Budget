@@ -37,7 +37,14 @@ Ver Gastos
                     <table class="table-date-text-field" id="tabla-field-anio">
                         <tr>
                             <td style="background: none;"><label for="anio">Anio:</label></td>
-                            <td><input type="text" class="form-control" id="anio" name="anio" placeholder="2021"></td>
+                            <td>
+                                <select name="anio" id="anio">
+                                    <option value="" selected disabled></option>
+                                    {% for i in range(2020,2024)%}
+                                    <option value="{{i}}">{{i}}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
                         </tr>
                     </table>
                 </td>
@@ -48,7 +55,12 @@ Ver Gastos
                                 <label for="mes">Mes:</label>
                             </td>
                             <td>
-                                <input type="text" class="form-control" id="mes" name="mes" placeholder="08">
+                                <select name="mes" id="mes">
+                                    <option value="" selected disabled></option>
+                                    {% for i in range(1,13)%}
+                                    <option value="{{i}}">{{i}}</option>
+                                    {% endfor %}
+                                </select>
                             </td>
                         </tr>
                     </table>
@@ -57,7 +69,14 @@ Ver Gastos
                     <table class="table-date-text-field" id="tabla-field-dia">
                         <tr>
                             <td style="background: none;"><label for="dia">Dia:</label></td>
-                            <td><input type="text" class="form-control" id="dia" name="dia" placeholder="25"></td>
+                            <td>
+                                <select name="dia" id="dia">
+                                    <option value="" selected disabled></option>
+                                    {% for i in range(1,32)%}
+                                    <option value="{{i}}">{{i}}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
                         </tr>
                     </table>
                 </td>
@@ -79,6 +98,8 @@ Ver Gastos
 
 <!-- TABLA HISTORIAL DE GASTOS DIARIOS-->
 
+{% if gasto_total_dia %}
+
 <div class=" table-history-container">
     <h2>
         Gastos del dia {{dia}}/{{mes}}/{{anio}}
@@ -93,7 +114,7 @@ Ver Gastos
         </thead>
 
         {% for row in rows %}
-        
+
         <tr>
             <td>{{row["nombre_gasto"]}}</td>
             <td>{{row["categoria"]}}</td>
@@ -102,17 +123,29 @@ Ver Gastos
 
         {% endfor %}
 
+        <footer>
+            <tr>
+                <td>Total</td>
+                <td></td>
+                <td>${{gasto_total_dia}}</td>
+            </tr>
+        </footer>
+
     </table>
 
 </div>
 
+{% endif%}
+
 <!-- TABLA HISTORIAL DE GASTOS MENSUALES-->
+
+{%if gastos_mensuales%}
 
 <div class="tabla-gastos-mensuales-container">
 
-    <h2>Gastos del mes {{mes}} / {{anio}}</h2>
+    <h2>Gastos del mes {{mes}}, {{anio}}</h2>
 
-    {%if gastos_mensuales%}
+
 
     <table class="tabla-gastos-mensuales">
 
@@ -164,14 +197,23 @@ Ver Gastos
             {% endfor %}
         </tr>
 
-    </table>
+        <footer>
+            <tr>
+                <td><h2>Total</h2></td>
+                <td>
+                    ${{gasto_total_mes}}
+                </td>
+            </tr>
+        </footer>
 
-    {%endif%}
+    </table>
 </div>
+
+{%endif%}
 
 <!-- TABLA HISTORIAL DE GASTOS ANUALES-->
 
-{% if gasto_total_anio  %}
+{% if gasto_total_anio %}
 
 <div class="tabla-gastos-anuales-container">
 
