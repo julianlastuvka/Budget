@@ -128,6 +128,10 @@ header{
     background-color: inherit;
 }
 
+.tabla-fecha td option{
+    font-size: 2.1vh;
+}
+
 /* ---------------------------- INPUT GASTOS --------------------------------*/
 
 .input-gasto{
@@ -216,11 +220,6 @@ header{
     font-size: 2.3vh;
 }
 
-.input-gasto__table > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(1),
-.input-gasto__table > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(3){
-    font-size: 2vh;
-}
-
 .nombre-gasto > li:nth-child(2), 
 .input-gasto__table > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(2),
 .input-gasto__table > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(4),
@@ -232,7 +231,6 @@ header{
     background-color: inherit;
     background-image: inherit;
 }
-
 
 
 /* ******************** LOG IN ****************************** */
@@ -341,6 +339,7 @@ header{
 
 .tabla-fecha tr td:first-child{
     background-image: linear-gradient(45deg, #7c4081 0%, #802551 100%);
+    width: 150px;
 }
 
 
@@ -601,6 +600,57 @@ label{
 
 @media screen and (min-width: 500px) and (max-width: 1100px){
 
+
+    /*** NAV BAR GRID ***/
+
+    header{
+        display: grid;
+        grid-template-columns: 7fr 2fr;
+        grid-template-rows: 70px 80px;
+        margin: 0px;
+    }
+
+    .logo{
+        justify-self: center;
+        grid-column: 1/2;
+        font-size: 9.5vw;
+    }
+
+    .contact{
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+
+    nav{
+        grid-column: 1/4;
+        grid-row: 2/3;
+    }
+
+/* *******************************************/
+
+    /* TABLA FECHA */
+
+    .tabla-fecha{
+        border-spacing: 2vw 5px;
+        width: 90%;
+    }
+
+    #mes > option{
+        font-size: 1.5vh;
+    }
+
+    /* "ver gastos"  */
+
+    .tabla-fecha > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(1){
+        font-size: 2.2vh;
+    }
+
+    /*   ANUALES / MENSUALES / DIARIOS  */
+    .tabla-fecha tr td label{
+        font-size: 2.15vh;
+    }
+
+
     .tabla-gastos-mensuales-container, .tabla-fecha{
         margin-left: 0;
     }
@@ -615,5 +665,7 @@ label{
     .tabla-gastos-mensuales tr td h2{
         bottom: 2vw;
     }
+
+
     
 }

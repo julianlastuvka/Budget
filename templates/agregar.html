@@ -13,21 +13,55 @@ block body %}
         <table class="input-gasto__table">
             <tbody>
                 <tr>
-                    <td>Categoria</td>
-                    <td><input type="text" class="form-control" id="cat" name="cat" placeholder="Ej: Comida"></td>
-                    <td>Fecha</td>
-                    <td><input type="text" class="form-control" id="precio" name="fecha" placeholder="dd/mm/aa"></td>
-                </tr>
-                <tr>
-                    <td>Sub-<br>Categoria</td>
-                    <td><input type="text" class="form-control" id="sub_cat" name="sub_cat" placeholder="Ej: Fruta">
+                    <td>Anio</td>
+                    <td>
+                        <select name="anio" id="anio">
+                            
+                            <option value="2020">2020</option>
+                            <option value="2021" selected>2021</option>
+                            <option value="2022">2022</option>
+                        
+                        </select>
                     </td>
-                    <td>Cantidad/<br>Peso</td>
-                    <td><input type="text" class="form-control" id="cant" name="cant"></td>
+                    <td>Categoria</td>
+                    <td><input type="text" class="form-control" id="cat" name="cat" placeholder="Ej: Fruta"></td>
                 </tr>
                 <tr>
+                    <td>Mes</td>
+                    <td>
+                        <select name="mes" id="mes">
+                            <option value="" selected disabled></option>
+                            
+                            <option value="Enero">Enero</option>
+                            <option value="Febrero">Febrero</option>
+                            <option value="Marzo">Marzo</option>
+                            <option value="Abril">Abril</option>
+                            <option value="Mayo">Mayo</option>
+                            <option value="Junio">Junio</option>
+                            <option value="Julio">Julio</option>
+                            <option value="Agosto">Agosto</option>
+                            <option value="Septiembre">Septiembre</option>
+                            <option value="Octubre">Octubre</option>
+                            <option value="Noviembre">Noviembre</option>
+                            <option value="Diciembre">Diciembre</option>
+                            
+                        </select>
+                    </td>
+
                     <td>Precio</td>
                     <td><input type="text" class="form-control" id="precio" name="precio" placeholder="$"></td>
+                </tr>
+                <tr>
+                    <td>Dia</td>
+                    <td>
+                        <select name="dia" id="dia">
+                        <option value="" selected disabled></option>
+                        {% for i in range(1,32)%}
+                        <option value="{{i}}">{{i}}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+
                     <td class="table-cell-btn-agregar"><button class="btn-agregar" type="submit">Agregar</button></td>
                 </tr>
             </tbody>

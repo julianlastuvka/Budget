@@ -16,6 +16,21 @@ Session(app)
 
 db = SQL("sqlite:///budget-db.db")
 
+NOMBRE_A_NUMERO_DE_MES = {
+    "Enero": 1,
+    "Febrero": 2,
+    "Marzo": 3,
+    "Abril": 4,
+    "Mayo": 5,
+    "Junio": 6,
+    "Julio": 7,
+    "Agosto": 8,
+    "Septiembre": 9,
+    "Octubre": 10,
+    "Noviembre": 11,
+    "Diciembre": 12
+}
+
 def login_required(f):
 
     @wraps(f)
@@ -93,6 +108,9 @@ def index():
         mes = request.form.get("mes")
         dia = request.form.get("dia")
 
+        if mes:
+            NOMBRE_A_NUMERO_DE_MES[mes]
+
         #Daily history
         if anio and mes and dia:
             rows = db.execute("SELECT * from history WHERE id = ? AND anio = ? AND mes = ? AND dia = ?", session["user_id"], anio, mes, dia)
@@ -132,37 +150,30 @@ def agregar():
     if request.method == "POST":
         nombre_gasto = request.form.get("nombre_gasto")
         categoria = request.form.get("cat")
-        subcat = request.form.get("sub_cat")
-        fecha = request.form.get("fecha")
         precio = request.form.get("precio")
-        cantidad = request.form.get("cant")
+        dia = request.form.get("dia")
+        mes = request.form.get("mes")
+        anio = request.form.get("anio")
+
+        mes = NOMBRE_A_NUMERO_DE_MES[mes]
 
         #checking for blank fields.
-        if not nombre_gasto or not categoria or not subcat or not fecha or not precio or not cantidad:
+        if not nombre_gasto or not categoria or not dia or not mes or not precio or not anio:
             # TO DO 
             # MESSAGE: ONE OR MORE FIELDS LEFT BLANK
             return render_template("agregar.html")
         # --------------------------------------------------------
-        # check for valid precio and cantidad
+        # check for valid precio
         try:
             precio = float(precio)
-            cantidad = float(cantidad)
+
         except ValueError:
             # TODO
             # ERROR MESSAGE: INVALID PRICE OR QUANTITY
             return render_template("agregar.html")
         # --------------------------------------------------------
-        # check for valid fecha
-        try:
-            dia = int(fecha[0:2])
-            mes = int(fecha[3:5])
-            anio = int(fecha[6:10])
-        except:
-            ## TODO
-            ## ERROR MESSAGE: INVALID DATE
-            return render_template("agregar.html")
 
-        db.execute("INSERT INTO history VALUES (?,?,?,?,?,?,?,?,?)", session["user_id"], nombre_gasto, categoria, subcat, cantidad, precio, dia, mes, anio)
+        db.execute("INSERT INTO history VALUES (?,?,?,?,?,?, ?)", session["user_id"], nombre_gasto, categoria, precio, dia, mes, anio)
         # TODO
         # return success message
         return render_template("agregar.html", nombre_gasto=nombre_gasto)

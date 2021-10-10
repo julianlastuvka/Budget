@@ -39,10 +39,9 @@ Ver Gastos
                             <td style="background: none;"><label for="anio">Anio:</label></td>
                             <td>
                                 <select name="anio" id="anio">
-                                    <option value="" selected disabled></option>
-                                    {% for i in range(2020,2024)%}
-                                    <option value="{{i}}">{{i}}</option>
-                                    {% endfor %}
+                                    <option value="2020">2020</option>
+                                    <option value="2021" selected>2021</option>
+                                    <option value="2022">2022</option>
                                 </select>
                             </td>
                         </tr>
@@ -57,9 +56,20 @@ Ver Gastos
                             <td>
                                 <select name="mes" id="mes">
                                     <option value="" selected disabled></option>
-                                    {% for i in range(1,13)%}
-                                    <option value="{{i}}">{{i}}</option>
-                                    {% endfor %}
+                                    
+                                    <option value="Enero">Enero</option>
+                                    <option value="Febrero">Febrero</option>
+                                    <option value="Marzo">Marzo</option>
+                                    <option value="Abril">Abril</option>
+                                    <option value="Mayo">Mayo</option>
+                                    <option value="Junio">Junio</option>
+                                    <option value="Julio">Julio</option>
+                                    <option value="Agosto">Agosto</option>
+                                    <option value="Septiembre">Septiembre</option>
+                                    <option value="Octubre">Octubre</option>
+                                    <option value="Noviembre">Noviembre</option>
+                                    <option value="Diciembre">Diciembre</option>
+                                    
                                 </select>
                             </td>
                         </tr>
