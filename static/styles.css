@@ -337,6 +337,10 @@ header{
 
 /* -------------- Tabla Fecha --------------- */
 
+.tabla-fecha{
+    width: 35%;
+}
+
 .tabla-fecha tr td:first-child{
     background-image: linear-gradient(45deg, #7c4081 0%, #802551 100%);
     width: 150px;
@@ -376,6 +380,10 @@ header{
     text-indent: 0px;
     color: rgb(233, 113, 157);
     text-shadow: 1px 1px 1px rgb(0, 0, 0);
+}
+
+#mes, #mes option{
+    font-size: 2.1vh;
 }
 
 /*  BOTON BUSCAR */
@@ -477,7 +485,7 @@ label{
 
 
 
-/*       MEDIA      */
+/*       MEDIA CELULAR   */
 
 
 @media screen and (max-width: 500px){
@@ -590,14 +598,27 @@ label{
 
     .input-gasto{
         margin-top: 60px;
+        margin-left: 3px;
     }
 
     #nombre_gasto{
-        width: 100%;
+        width: 150%;
+    }
+
+    .presupuesto, .tabla-fecha, .input-gasto__table{
+        margin-left: 0px;
+    }
+
+    .input-gasto__table td{
+        font-size: 2.1vh;
+    }
+
+    #mes{
+        font-size: 1.8vh;
     }
 }
 
-
+/*  ********************     TABLET  **********************/
 @media screen and (min-width: 500px) and (max-width: 1100px){
 
 
@@ -667,5 +688,9 @@ label{
     }
 
 
-    
+    /* Nombre del gasto  */
+
+    #nombre_gasto{
+        width: 50vw;
+    }
 }
