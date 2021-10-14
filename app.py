@@ -109,7 +109,7 @@ def index():
         dia = request.form.get("dia")
 
         if mes:
-            NOMBRE_A_NUMERO_DE_MES[mes]
+            mes = NOMBRE_A_NUMERO_DE_MES[mes]
 
         #Daily history
         if anio and mes and dia:
@@ -122,7 +122,7 @@ def index():
         # Montly history
         elif anio and mes:
             rows = db.execute("SELECT * from history WHERE id = ? AND anio = ? AND mes = ?", session["user_id"], anio, mes)
-
+            
             gastos_mensuales, gasto_total_mes = procesar_gastos_mensuales(rows)
             
             return render_template("index.html", rows=rows, anio=anio, mes=mes, dia=dia, gastos_mensuales=gastos_mensuales, gasto_total_mes=gasto_total_mes)

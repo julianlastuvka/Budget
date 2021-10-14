@@ -93,7 +93,7 @@ header{
 
 /* ------------------------- Tabla presupuesto & Tabla Fecha -------------------------*/
 
-.presupuesto, .tabla-fecha{ 
+.presupuesto, .tabla-filtrar-fecha{ 
     
     text-align: center;
     color: white;
@@ -104,7 +104,7 @@ header{
     
 } 
 
-.presupuesto td, .tabla-fecha td{
+.presupuesto td, .tabla-filtrar-fecha td{
     padding: 0.88vh 0.7vw;
     border-radius: 50px; 
 }
@@ -113,14 +113,14 @@ header{
     background-image: linear-gradient(45deg, #7c4081 0%, #802551 100%);
 }
 
-.presupuesto__body td, .tabla-fecha td{
+.presupuesto__body td, .tabla-filtrar-fecha td{
     font-size: 3.8vh;
     padding: 0.5vh 0.7vw;
     background-color: #bd1a43;
     margin: 10px;
 }
 
-.tabla-fecha td{
+.tabla-filtrar-fecha td{
     font-size: 2.8vh;
 }
 
@@ -128,7 +128,7 @@ header{
     background-color: inherit;
 }
 
-.tabla-fecha td option{
+.tabla-filtrar-fecha td option{
     font-size: 2.1vh;
 }
 
@@ -337,24 +337,24 @@ header{
 
 /* -------------- Tabla Fecha --------------- */
 
-.tabla-fecha{
+.tabla-filtrar-fecha{
     width: 35%;
 }
 
-.tabla-fecha tr td:first-child{
+.tabla-filtrar-fecha tr td:first-child{
     background-image: linear-gradient(45deg, #7c4081 0%, #802551 100%);
     width: 150px;
 }
 
 
-.tabla-fecha td{
+.tabla-filtrar-fecha td{
     background-image: linear-gradient(to right top, #f04819, #ec562e, #e7633f, #e16e4f, #da795f);
     padding: 0.65vh 0.7vw;
 }
 
-.tabla-fecha tr:nth-child(2) td:nth-child(2),
-.tabla-fecha tr:nth-child(2) td:nth-child(3),
-.tabla-fecha tr:nth-child(2) td:nth-child(4){
+.tabla-filtrar-fecha tr:nth-child(2) td:nth-child(2),
+.tabla-filtrar-fecha tr:nth-child(2) td:nth-child(3),
+.tabla-filtrar-fecha tr:nth-child(2) td:nth-child(4){
     background: none;
 }
 
@@ -490,6 +490,8 @@ label{
 
 @media screen and (max-width: 500px){
 
+    /* GRID HEADER */
+
     
     header{
         display: grid;
@@ -529,25 +531,96 @@ label{
         font-size: 2.4vh;
     }
     
-    .nav__links > li:nth-child(1) > a{
-
-    }
-
-    .nav__links > li:nth-child(2) >{
-
-    }
-
     .nav__links{
         padding: 0px;
     }
 
-    .tabla-fecha{
+    /**** tabla-filtrar-fecha ****/
+
+    /* GRID DISPLAY */
+
+    .tabla-filtrar-fecha{
+        margin-left: 0px;
+        width: 100%;
+        border-spacing: 6px;
+    }
+
+    .table-date-text-field{
+        border-spacing: 6px;
+    }
+    
+    .tabla-filtrar-fecha tr td:first-child{
+        width: auto;
+    }
+
+    .tabla-filtrar-fecha tbody{
+        display: grid;
+        grid-template-columns: 3fr 3fr 3fr;
+        grid-template-rows: 60px 50px 50px 50px 60px 60px;
+    }
+
+    /* PRIMERA FILA*/
+
+    .tabla-filtrar-fecha tbody tr:first-child{
+        grid-column: 1/4;
+        grid-row: 1/2;
+    }
+
+    
+    /* SEGUNDA FILA*/
+
+    .tabla-filtrar-fecha tbody tr:nth-child(2){
+        display: grid;
+        grid-template-columns: 6fr 4fr;
+        grid-template-rows: 50px 50px 50px 50px;
+        grid-column: 1/4;
+        grid-row: 2/4;
+    }
+
+   /*FECHA */
+    .tabla-filtrar-fecha > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(1){
+        grid-column: 1/2;
+        grid-row: 1/2;
+        text-align:center;
+        align-self: center;
+        padding: 5px;
+    }
+
+    .tabla-filtrar-fecha > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(2){
+        grid-column: 1/2;
+        grid-row: 2/3;
+        
+        
+    }
+
+    .tabla-filtrar-fecha > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(3){
+        grid-column: 1/2;
+        grid-row: 3/4;
+        
+    }
+
+    .tabla-filtrar-fecha > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(4){
+        grid-column: 1/2;
+        grid-row: 4/5;
+        
+    }
+    
+    /* TERCERA FILA*/
+    .tabla-filtrar-fecha tbody tr:nth-child(3){
+        grid-column: 1/2;
+        grid-row: 6/7;
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr;
+    }
+
+    .blank-row > td:nth-child(4){
+        grid-column: 1/2;
+        grid-row: 1/2;
         margin-left: 0px;
     }
 
-    .tabla-gastos-mensuales-container{
-        margin: 0;
-    }
+    /* end Grid*/
 
     .table-history, .tabla-gastos-mensuales, .tabla-gastos-anuales {
         width: 100%;
@@ -581,9 +654,9 @@ label{
         bottom: 25%;
     }
 
-    .tabla-fecha td label, .tabla-fecha td{
-        font-size: 2.2vh;
-        padding: 0px;
+    .tabla-filtrar-fecha td label, .tabla-filtrar-fecha td{
+        font-size: 2.5vh;
+        padding: 3px;
     }
 
     .btn-buscar{
@@ -605,7 +678,7 @@ label{
         width: 150%;
     }
 
-    .presupuesto, .tabla-fecha, .input-gasto__table{
+    .presupuesto, .tabla-filtrar-fecha, .input-gasto__table{
         margin-left: 0px;
     }
 
@@ -651,7 +724,7 @@ label{
 
     /* TABLA FECHA */
 
-    .tabla-fecha{
+    .tabla-filtrar-fecha{
         border-spacing: 2vw 5px;
         width: 90%;
     }
@@ -662,17 +735,17 @@ label{
 
     /* "ver gastos"  */
 
-    .tabla-fecha > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(1){
+    .tabla-filtrar-fecha > tbody:nth-child(2) > tr:nth-child(1) > td:nth-child(1){
         font-size: 2.2vh;
     }
 
     /*   ANUALES / MENSUALES / DIARIOS  */
-    .tabla-fecha tr td label{
+    .tabla-filtrar-fecha tr td label{
         font-size: 2.15vh;
     }
 
 
-    .tabla-gastos-mensuales-container, .tabla-fecha{
+    .tabla-gastos-mensuales-container, .tabla-filtrar-fecha{
         margin-left: 0;
     }
     
