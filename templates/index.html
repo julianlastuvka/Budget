@@ -8,99 +8,102 @@ Ver Gastos
 
 <div class="filtrar-historial-container">
 
-    <table class="tabla-fecha">
-        <form class="row-text-fields" action="/" method="POST">
-            <tr>
-                <td>Gastos:</td>
+    <table class="tabla-filtrar-fecha">
+        <tbody>
+            <form class="row-text-fields" action="/" method="POST">
+                <tr>
+                    <td>Gastos:</td>
 
-                <td>
-                    <input type="radio" class="btn-filtrar-fecha" id="btn-anuales" value="anual" name="fecha">
-                    <label for="btn-anuales">Anuales</label><br>
-                </td>
+                    <td>
+                        <input type="radio" class="btn-filtrar-fecha" id="btn-anuales" value="anual" name="fecha">
+                        <label for="btn-anuales">Anuales</label><br>
+                    </td>
 
-                <td>
-                    <input type="radio" class="btn-filtrar-fecha" id="btn-mensuales" value="mensual" name="fecha">
-                    <label for="btn-mensuales">Mensuales</label><br>
+                    <td>
+                        <input type="radio" class="btn-filtrar-fecha" id="btn-mensuales" value="mensual" name="fecha">
+                        <label for="btn-mensuales">Mensuales</label><br>
+                    </td>
 
-                </td>
+                    <td>
+                        <input type="radio" class="btn-filtrar-fecha" id="btn-diarios" value="diario" name="fecha">
+                        <label for="btn-diarios">Diarios</label><br>
+                    </td>
 
-                <td>
-                    <input type="radio" class="btn-filtrar-fecha" id="btn-diarios" value="diario" name="fecha">
-                    <label for="btn-diarios">Diarios</label><br>
-                </td>
+                </tr>
 
-            </tr>
+                <tr>
+                    <td>Fecha:</td>
+                    <td>
+                        <table class="table-date-text-field" id="tabla-field-anio">
+                            <tr>
+                                <td style="background: none;"><label for="anio">Anio:</label></td>
+                                <td>
+                                    <select name="anio" id="anio">
+                                        <option value="2020">2020</option>
+                                        <option value="2021" selected>2021</option>
+                                        <option value="2022">2022</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table class="table-date-text-field" id="tabla-field-mes">
+                            <tr>
+                                <td style="background: none;">
+                                    <label for="mes">Mes:</label>
+                                </td>
+                                <td>
+                                    <select name="mes" id="mes">
+                                        <option value="" selected disabled></option>
 
-            <tr>
-                <td>Fecha:</td>
-                <td>
-                    <table class="table-date-text-field" id="tabla-field-anio">
-                        <tr>
-                            <td style="background: none;"><label for="anio">Anio:</label></td>
-                            <td>
-                                <select name="anio" id="anio">
-                                    <option value="2020">2020</option>
-                                    <option value="2021" selected>2021</option>
-                                    <option value="2022">2022</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td>
-                    <table class="table-date-text-field" id="tabla-field-mes">
-                        <tr>
-                            <td style="background: none;">
-                                <label for="mes">Mes:</label>
-                            </td>
-                            <td>
-                                <select name="mes" id="mes">
-                                    <option value="" selected disabled></option>
-                                    
-                                    <option value="Enero">Enero</option>
-                                    <option value="Febrero">Febrero</option>
-                                    <option value="Marzo">Marzo</option>
-                                    <option value="Abril">Abril</option>
-                                    <option value="Mayo">Mayo</option>
-                                    <option value="Junio">Junio</option>
-                                    <option value="Julio">Julio</option>
-                                    <option value="Agosto">Agosto</option>
-                                    <option value="Septiembre">Septiembre</option>
-                                    <option value="Octubre">Octubre</option>
-                                    <option value="Noviembre">Noviembre</option>
-                                    <option value="Diciembre">Diciembre</option>
-                                    
-                                </select>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td>
-                    <table class="table-date-text-field" id="tabla-field-dia">
-                        <tr>
-                            <td style="background: none;"><label for="dia">Dia:</label></td>
-                            <td>
-                                <select name="dia" id="dia">
-                                    <option value="" selected disabled></option>
-                                    {% for i in range(1,32)%}
-                                    <option value="{{i}}">{{i}}</option>
-                                    {% endfor %}
-                                </select>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
+                                        <option value="Enero">Enero</option>
+                                        <option value="Febrero">Febrero</option>
+                                        <option value="Marzo">Marzo</option>
+                                        <option value="Abril">Abril</option>
+                                        <option value="Mayo">Mayo</option>
+                                        <option value="Junio">Junio</option>
+                                        <option value="Julio">Julio</option>
+                                        <option value="Agosto">Agosto</option>
+                                        <option value="Septiembre">Septiembre</option>
+                                        <option value="Octubre">Octubre</option>
+                                        <option value="Noviembre">Noviembre</option>
+                                        <option value="Diciembre">Diciembre</option>
 
-            <tr class="blank-row">
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button class="btn-buscar">Buscar</button>
-                </td>
-            </tr>
-        </form>
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table class="table-date-text-field" id="tabla-field-dia">
+                            <tr>
+                                <td style="background: none;"><label for="dia">Dia:</label></td>
+                                <td>
+                                    <select name="dia" id="dia">
+                                        <option value="" selected disabled></option>
+                                        {% for i in range(1,32)%}
+                                        <option value="{{i}}">{{i}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr class="blank-row">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <button class="btn-buscar">Buscar</button>
+                    </td>
+                </tr>
+            </form>
+
+        </tbody>
+
     </table>
 
 </div>
@@ -209,7 +212,9 @@ Ver Gastos
 
         <footer>
             <tr>
-                <td><h2>Total</h2></td>
+                <td>
+                    <h2>Total</h2>
+                </td>
                 <td>
                     ${{gasto_total_mes}}
                 </td>
