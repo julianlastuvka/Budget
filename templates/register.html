@@ -11,33 +11,34 @@
 
 <body>
 
-    <form action="/register" method="post">
+    <div class="register-container">
 
-        <div class="register-container">
 
-            <ul class="list-input-register">
-                <li>
-                    <input autocomplete="off" autofocus name="username" placeholder="Username" type="text">
-                </li>
-                <li>
-                    <input autocomplete="off" autofocus name="email" placeholder="email address" type="text">
-                </li>
-                <li>
-                    <input name="password" placeholder="Password" type="password">
-                </li>
-                <li>
-                    <input name="confirmation" placeholder="Repeat password" type="password">
-                </li>
-                <li>
-                    <button class="btn-register" type="submit">Register</button>
-                </li>
-            </ul>
-        </div>
-    </form>
+        <ul class="list-input-register">
+            <form action="/register" method="post"></form>
+            <li>
+                <input autocomplete="off" autofocus name="username" placeholder="Username" type="text">
+            </li>
+            <li>
+                <input autocomplete="off" autofocus name="email" placeholder="email address" type="text">
+            </li>
+            <li>
+                <input autocomplete="off" name="password" placeholder="Password" type="password">
+            </li>
+            <li>
+                <button class="btn-register" type="submit">Registrarse</button>
+            </li>
+            </form>
 
-    <form action="/login">
-        <button class="btn-register" type="submit">Log in</button>
-    </form>
+            <li>
+                <p class="redirigir_iniciar_sesion">Ya tienes una cuenta? <a href="/login">Inicia sesion aqui.</a></p>
+            </li>
+        </ul>
+
+
+    </div>
+
+
 
 
 </body>

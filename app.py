@@ -242,7 +242,7 @@ def register():
             return render_template("register.html")
 
         #check that a password was provided
-        elif not request.form.get("password") or not request.form.get("confirmation"):
+        elif not request.form.get("password"):
             return render_template("register.html")
 
         #check that the password and password confirmation match
