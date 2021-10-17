@@ -105,11 +105,13 @@ def index():
     if request.method == "POST":
 
         anio = request.form.get("anio")
-        mes = request.form.get("mes")
+        nombre_de_mes = request.form.get("mes")
         dia = request.form.get("dia")
 
-        if mes:
-            mes = NOMBRE_A_NUMERO_DE_MES[mes]
+        if nombre_de_mes:
+            mes = NOMBRE_A_NUMERO_DE_MES[nombre_de_mes]
+        else:
+            mes = None
 
         #Daily history
         if anio and mes and dia:
@@ -117,7 +119,7 @@ def index():
 
             gasto_total_dia = procesar_gastos_diarios(rows)
 
-            return render_template("index.html", dia=dia, mes=mes, anio=anio, gasto_total_dia=gasto_total_dia, rows=rows)
+            return render_template("index.html", dia=dia, mes=mes, anio=anio, gasto_total_dia=gasto_total_dia, rows=rows, nombre_de_mes=nombre_de_mes)
         
         # Montly history
         elif anio and mes:
@@ -125,7 +127,7 @@ def index():
             
             gastos_mensuales, gasto_total_mes = procesar_gastos_mensuales(rows)
             
-            return render_template("index.html", rows=rows, anio=anio, mes=mes, dia=dia, gastos_mensuales=gastos_mensuales, gasto_total_mes=gasto_total_mes)
+            return render_template("index.html", rows=rows, anio=anio, mes=mes, dia=dia, gastos_mensuales=gastos_mensuales, gasto_total_mes=gasto_total_mes, nombre_de_mes=nombre_de_mes)
 
         # Yearly history
         elif anio:
@@ -133,12 +135,15 @@ def index():
 
             return render_template("index.html", dia=dia, mes=mes, anio=anio, gastos_por_mes=gastos_por_mes, gasto_total_anio=gasto_total_anio)
 
+
     date = datetime.now()
     anio, mes, dia = date.year, date.month, date.day
+    nombre_de_mes = ""
     rows = db.execute("SELECT * from history WHERE id = ? AND anio = ? AND mes = ?", session["user_id"], anio, mes)
     gastos_mensuales, gasto_total_mes = procesar_gastos_mensuales(rows)
 
-    return render_template("index.html", rows=rows, anio=anio, mes=mes, dia=dia, gastos_mensuales=gastos_mensuales, gasto_total_mes=gasto_total_mes)
+
+    return render_template("index.html", rows=rows, anio=anio, mes=mes, dia=dia, gastos_mensuales=gastos_mensuales, gasto_total_mes=gasto_total_mes, nombre_de_mes=nombre_de_mes)
 
 
 

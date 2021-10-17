@@ -114,9 +114,9 @@ Ver Gastos
 {% if gasto_total_dia %}
 
 <div class=" table-history-container">
-    <h2>
-        Gastos del dia {{dia}}/{{mes}}/{{anio}}
-    </h2>
+    <h1 class="titulo_historial_gastos">
+        Gastos del dia {{dia}} de {{nombre_de_mes}}, {{anio}}
+    </h1>
     <table class="table-history">
         <thead>
             <tr>
@@ -156,9 +156,7 @@ Ver Gastos
 
 <div class="tabla-gastos-mensuales-container">
 
-    <h2>Gastos del mes {{mes}}, {{anio}}</h2>
-
-
+    <h1 class="titulo_historial_gastos">Gastos de {{nombre_de_mes}}, {{anio}}</h1>
 
     <table class="tabla-gastos-mensuales">
 
@@ -231,6 +229,10 @@ Ver Gastos
 {% if gasto_total_anio %}
 
 <div class="tabla-gastos-anuales-container">
+
+    <h1 class="titulo_historial_gastos">
+        Gastos de {{anio}}
+    </h1>
 
     <table class="tabla-gastos-anuales">
 

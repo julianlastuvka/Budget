@@ -15,8 +15,8 @@ function mostrar_diario() {
     const field_mes = document.querySelector("#tabla-field-mes")
     const field_dia = document.querySelector("#tabla-field-dia")
 
-    field_mes.style.display = "block";
-    field_dia.style.display = "block";
+    field_mes.style.visibility = "visible";
+    field_dia.style.visibility = "visible";
 
 }
 
@@ -29,8 +29,8 @@ function mostrar_mensual() {
     const field_mes = document.querySelector("#tabla-field-mes")
     const field_dia = document.querySelector("#tabla-field-dia")
 
-    field_mes.style.display = "block";
-    field_dia.style.display = "none";
+    field_mes.style.visibility = "visible";
+    field_dia.style.visibility = "hidden";
 
     let value_diario = document.querySelector("#dia").value = "";
     
@@ -44,8 +44,8 @@ function mostrar_anual() {
     const field_mes = document.querySelector("#tabla-field-mes")
     const field_dia = document.querySelector("#tabla-field-dia")
 
-    field_mes.style.display = "none";
-    field_dia.style.display = "none";
+    field_mes.style.visibility = "hidden";
+    field_dia.style.visibility = "hidden";
 
     let value_diario = document.querySelector("#dia").value = "";
     let value_mensual = document.querySelector("#mes").value = "";

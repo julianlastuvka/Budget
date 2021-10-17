@@ -280,13 +280,22 @@ header{
 }
 
 
-/*------------------------------------ HISTORY TABLE ---------------------------------------------  */
+/* TITULO PARA TABLAS MOSTRANDO HISTORIAL   */
 
-.table-history.container{
-    position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+.titulo_historial_gastos {
+    font-family: "Arial Black", sans-serif;
+    font-size: 2.9vh;
+    letter-spacing: 0px;
+    background-color: rgba(172, 91, 145, 0.72);
+    color: white;
+}
+
+/*------------------------------------ HISTORY TABLE (DIARIO) ---------------------------------------------  */
+
+
+.tabla-gastos-anuales-container, .table-history-container{
+    margin-left :1vw;
+    margin-top: 45px;
 }
 
 .table-history, .tabla-gastos-anuales {
@@ -294,10 +303,10 @@ header{
     border-collapse: collapse;
     overflow: hidden;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
-    margin-left :4.5vw;
-    margin-top: 70px;
     border-radius: 20px;
     background: linear-gradient(45deg, #49a09d, #5f2c82);
+    margin-top: 30px;
+    margin-left: 30px;
 
 }
 .table-history th, .table-history td, .tabla-gastos-anuales td {
@@ -352,9 +361,9 @@ header{
     padding: 0.65vh 0.7vw;
 }
 
-.tabla-filtrar-fecha tr:nth-child(2) td:nth-child(2),
-.tabla-filtrar-fecha tr:nth-child(2) td:nth-child(3),
-.tabla-filtrar-fecha tr:nth-child(2) td:nth-child(4){
+.tabla-filtrar-fecha tr:nth-child(3) td:nth-child(2),
+.tabla-filtrar-fecha tr:nth-child(3) td:nth-child(3),
+.tabla-filtrar-fecha tr:nth-child(3) td:nth-child(4){
     background: none;
 }
 
@@ -553,32 +562,49 @@ label{
         width: auto;
     }
 
-    .tabla-filtrar-fecha tbody{
+    .tabla-filtrar-fecha > tbody:nth-child(1){
         display: grid;
-        grid-template-columns: 3fr 3fr 3fr;
-        grid-template-rows: 60px 50px 50px 50px 60px 60px;
+        grid-template-columns: 95%;
+        grid-template-rows: 100px 210px 60px;
     }
 
     /* PRIMERA FILA*/
 
-    .tabla-filtrar-fecha tbody tr:first-child{
+    .tabla-filtrar-fecha > tbody:nth-child(1) > tr:nth-child(2){
         grid-column: 1/4;
         grid-row: 1/2;
+        display: grid;
+        grid-template-columns: 31% 36% 32%;
+        grid-template-rows: 50% 50%;
     }
 
-    
+    .tabla-filtrar-fecha  tbody tr:nth-child(2) > td:nth-child(2){
+        grid-column: 1/2;
+        grid-row: 2/3;
+    }
+
+    .tabla-filtrar-fecha  tbody tr:nth-child(2) > td:nth-child(3){
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+
+    .tabla-filtrar-fecha tbody tr:nth-child(2) > td:nth-child(4){
+        grid-column: 3/4;
+        grid-row: 2/3;
+    }
     /* SEGUNDA FILA*/
 
-    .tabla-filtrar-fecha tbody tr:nth-child(2){
+    .tabla-filtrar-fecha tbody tr:nth-child(3){
         display: grid;
         grid-template-columns: 6fr 4fr;
         grid-template-rows: 50px 50px 50px 50px;
         grid-column: 1/4;
-        grid-row: 2/4;
+        grid-row: 2/3;
     }
 
    /*FECHA */
-    .tabla-filtrar-fecha > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(1){
+    
+    .tabla-filtrar-fecha > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1){
         grid-column: 1/2;
         grid-row: 1/2;
         text-align:center;
@@ -586,32 +612,31 @@ label{
         padding: 5px;
     }
 
-    .tabla-filtrar-fecha > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(2){
+    .tabla-filtrar-fecha > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(2){
         grid-column: 1/2;
         grid-row: 2/3;
         
-        
     }
 
-    .tabla-filtrar-fecha > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(3){
+    .tabla-filtrar-fecha > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(3){
         grid-column: 1/2;
         grid-row: 3/4;
         
     }
 
-    .tabla-filtrar-fecha > tbody:nth-child(2) > tr:nth-child(2) > td:nth-child(4){
+    .tabla-filtrar-fecha > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(4){
         grid-column: 1/2;
         grid-row: 4/5;
         
     }
     
     /* TERCERA FILA*/
-    .tabla-filtrar-fecha tbody tr:nth-child(3){
+    .blank-row{
         grid-column: 1/2;
-        grid-row: 6/7;
+        grid-row: 3/4;
         display: grid;
-        grid-template-rows: 1fr;
-        grid-template-columns: 1fr;
+        grid-template-rows: 60px;
+        grid-template-columns: 30%;
     }
 
     .blank-row > td:nth-child(4){
@@ -630,7 +655,7 @@ label{
 
 
     .tabla-gastos-mensuales{
-        height: 400px;
+        height: 50%;
         table-layout: fixed;
         border-spacing: 0.3em 0.5em;
     }
