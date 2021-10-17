@@ -157,10 +157,13 @@ def agregar():
         categoria = request.form.get("cat")
         precio = request.form.get("precio")
         dia = request.form.get("dia")
-        mes = request.form.get("mes")
+        nombre_de_mes = request.form.get("mes")
         anio = request.form.get("anio")
 
-        mes = NOMBRE_A_NUMERO_DE_MES[mes]
+        if nombre_de_mes:
+            mes = NOMBRE_A_NUMERO_DE_MES[nombre_de_mes]
+        else:
+            mes = None
 
         #checking for blank fields.
         if not nombre_gasto or not categoria or not dia or not mes or not precio or not anio:
@@ -178,7 +181,7 @@ def agregar():
             return render_template("agregar.html")
         # --------------------------------------------------------
 
-        db.execute("INSERT INTO history VALUES (?,?,?,?,?,?, ?)", session["user_id"], nombre_gasto, categoria, precio, dia, mes, anio)
+        db.execute("INSERT INTO history VALUES (?,?,?,?,?,?,?)", session["user_id"], nombre_gasto, categoria, precio, dia, mes, anio)
         # TODO
         # return success message
         return render_template("agregar.html", nombre_gasto=nombre_gasto)
