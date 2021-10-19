@@ -7,23 +7,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar sesion</title>
     <link href="/static/styles.css" rel="stylesheet">
+    <link rel ="icon" href ="/static/title-icon.png" type = "image/x-icon">
 </head>
 
 <body>
 
     <div class="login-container">
-        <form action="/login" method="post">
 
-            <input autocomplete="off" autofocus class="form-login" name="username" placeholder="Username" type="text">
-            <input class="form-login" name="password" placeholder="Password" type="password">
+        <ul class="list-input-login">
 
-            <button class="btn-login" type="submit">Log In</button>
-        </form>
-        
-        <form action="/register">
-            <button class="btn-login" type="submit">Register</button>
-        </form>
-        
+            <form action="/login" method="post">
+
+                <li>
+                    <input autocomplete="off" autofocus class="form-login" name="username" placeholder="Username"
+                        type="text">
+                </li>
+
+                <li>
+                    <input class="form-login" name="password" placeholder="Password" type="password">
+                </li>
+
+                <li>
+                    <button class="btn-login" type="submit">Log In</button>
+                </li>
+
+            </form>
+
+            <li>
+                <p class="redirigir_iniciar_sesion">¿No tienes una cuenta? <a href="/register">Registrate aqui.</a></p>
+            </li>
+
+        </ul>
+
     </div>
 </body>
 

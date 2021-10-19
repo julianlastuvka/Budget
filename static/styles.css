@@ -235,19 +235,12 @@ header{
 
 /* ******************** LOG IN ****************************** */
 
-.login-container{
-    margin: 100px;
+.logo_container{
+    margin-top: 2%;
 }
 
-.form-login{
-    color: black;
-    border: none;
-}
-
-.btn-login{
-    padding: 3px;
-    background-color: rgba(132, 32, 226, 0.548);
-    border: none;
+input:-webkit-autofill {
+    -webkit-box-shadow: inset 0 0 0px 9999px rgb(255, 255, 255);
 }
 
 .redirigir_iniciar_sesion{
@@ -268,31 +261,38 @@ header{
 
 /*********************** REGISTER ****************************** */
 
-.register-container{
-    margin: 10%;
-    background: #ffffffcf;
-    width: 80%;
+.register-container, .login-container{
+    background: #ffffff;
+    width: 28%;
     padding: 30px;  
     border-radius: 20px;
+
+    top: 45%;
+    left: 57%;
+    margin-top: -9em; /*set to a negative number 1/2 of your height*/
+    margin-left: -15em; /*set to a negative number 1/2 of your width*/
+    border: 1px solid #ccc;
+    position: fixed;
+    
 }
 
-.register-container ul{
+.list-input-register, .list-input-login{
     list-style-type: none;
 }
 
-.register-container ul li input{
+.register-container ul li input, .list-input-login li input{
     margin-bottom: 20px;
-width: 29vh;
-height: 4.3vh;
-border-radius: 12px;
-padding: 0.5vh 0.7vw;
-font-size: 2.1vh;
-color: rgba(34, 28, 28, 0.48);
-font-family: "Montserrat";
-background: #b3b1b11a;
+    width: 29vh;
+    height: 4.3vh;
+    border-radius: 12px;
+    padding: 0.5vh 0.7vw;
+    font-size: 2.1vh;
+    color: rgba(34, 28, 28, 0.48);
+    font-family: "Montserrat";
+    background: #b3b1b11a;
 }
 
-.btn-register{
+.btn-register, .btn-login{
     border-radius: 50px;
     padding: 0.5vh 0.7vw;
     background-color: rgba(250, 4, 49, 0.892);

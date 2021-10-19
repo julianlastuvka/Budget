@@ -7,9 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrarse</title>
     <link href="/static/styles.css" rel="stylesheet">
+    <link rel = "icon" href = 
+    "/static/title-icon.png" 
+            type = "image/x-icon">
 </head>
 
 <body>
+
+    <div class="logo_container">
+
+        <h1 class="logo">budget</h1>
+    </div>
 
     <div class="register-container">
 
@@ -17,13 +25,14 @@
         <ul class="list-input-register">
             <form action="/register" method="post"></form>
             <li>
-                <input autocomplete="off" autofocus name="username" placeholder="Username" type="text">
+                <input autocomplete="off" autofocus name="username" placeholder="Nombre de usuario" type="text">
             </li>
             <li>
-                <input autocomplete="off" autofocus name="email" placeholder="email address" type="text">
+                <input autocomplete="off" autofocus name="email" placeholder="Correo electronico" type="text">
             </li>
             <li>
-                <input autocomplete="off" name="password" placeholder="Password" type="password">
+                <input autocomplete="off" name="password" placeholder="Contraseña" type="password">
+                
             </li>
             <li>
                 <button class="btn-register" type="submit">Registrarse</button>
@@ -35,8 +44,12 @@
             </li>
         </ul>
 
-
     </div>
+
+    <div class="cherry_img_container">
+        <img src="/static/blossom.png" alt="cheery blossom"> 
+    </div>
+    
 
 
 
