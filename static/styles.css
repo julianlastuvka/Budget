@@ -202,6 +202,8 @@ select{
     height: 5vh;
 }
 
+
+
 /************************* TABLE *****************************/
 
 
@@ -283,7 +285,7 @@ input:-webkit-autofill {
 
 /*********************** REGISTER ****************************** */
 
-.register-container, .login-container{
+.register-container, .login-container, .cambios_cuenta_container{
     background: #ffffffc4;
     width: 28%;
     padding: 30px;  
@@ -302,11 +304,11 @@ input:-webkit-autofill {
 }
 
 
-.list-input-register, .list-input-login{
+.list-input-register, .list-input-login, .lista_cambio_cuenta{
     list-style-type: none;
 }
 
-.register-container ul li input, .list-input-login li input{
+.register-container ul li input, .list-input-login li input, .lista_cambio_cuenta li input{
     margin-bottom: 20px;
     width: 29vh;
     height: 4.3vh;
@@ -318,14 +320,34 @@ input:-webkit-autofill {
     background: #b3b1b11a;
 }
 
-.btn-register, .btn-login{
+.btn-register, .btn-login, .btn-presupuesto{
     border-radius: 50px;
     padding: 0.5vh 0.7vw;
     background-color: rgba(240, 30, 69, 0.892);
 
 }
 
+/************* CUENTA ******************/
 
+.titulo_cuenta{
+    color: rgb(250, 125, 125);
+    margin-bottom: 15px;
+    font-family: "Montserrat";
+}
+
+.lista_cambio_cuenta{
+    margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+/*************************************************************************************** /
 /* TITULO PARA TABLAS MOSTRANDO HISTORIAL   */
 
 .titulo_historial_gastos {

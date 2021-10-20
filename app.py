@@ -102,6 +102,8 @@ def procesar_gastos_anuales(anio):
 @login_required
 def index():
 
+    presupuesto_anual = db.execute("SELECT budget FROM users WHERE id = ?", session["user_id"])[0]["budget"]
+
     if request.method == "POST":
 
         anio = request.form.get("anio")
@@ -119,7 +121,7 @@ def index():
 
             gasto_total_dia = procesar_gastos_diarios(rows)
 
-            return render_template("index.html", dia=dia, mes=mes, anio=anio, gasto_total_dia=gasto_total_dia, rows=rows, nombre_de_mes=nombre_de_mes)
+            return render_template("index.html", dia=dia, mes=mes, anio=anio, gasto_total_dia=gasto_total_dia, rows=rows, nombre_de_mes=nombre_de_mes, presupuesto_anual=presupuesto_anual)
         
         # Montly history
         elif anio and mes:
@@ -127,13 +129,13 @@ def index():
             
             gastos_mensuales, gasto_total_mes = procesar_gastos_mensuales(rows)
             
-            return render_template("index.html", rows=rows, anio=anio, mes=mes, dia=dia, gastos_mensuales=gastos_mensuales, gasto_total_mes=gasto_total_mes, nombre_de_mes=nombre_de_mes)
+            return render_template("index.html", rows=rows, anio=anio, mes=mes, dia=dia, gastos_mensuales=gastos_mensuales, gasto_total_mes=gasto_total_mes, nombre_de_mes=nombre_de_mes, presupuesto_anual=presupuesto_anual)
 
         # Yearly history
         elif anio:
             gastos_por_mes, gasto_total_anio = procesar_gastos_anuales(anio)
 
-            return render_template("index.html", dia=dia, mes=mes, anio=anio, gastos_por_mes=gastos_por_mes, gasto_total_anio=gasto_total_anio)
+            return render_template("index.html", dia=dia, mes=mes, anio=anio, gastos_por_mes=gastos_por_mes, gasto_total_anio=gasto_total_anio, presupuesto_anual=presupuesto_anual)
 
 
     date = datetime.now()
@@ -143,7 +145,7 @@ def index():
     gastos_mensuales, gasto_total_mes = procesar_gastos_mensuales(rows)
 
 
-    return render_template("index.html", rows=rows, anio=anio, mes=mes, dia=dia, gastos_mensuales=gastos_mensuales, gasto_total_mes=gasto_total_mes, nombre_de_mes=nombre_de_mes)
+    return render_template("index.html", rows=rows, anio=anio, mes=mes, dia=dia, gastos_mensuales=gastos_mensuales, gasto_total_mes=gasto_total_mes, nombre_de_mes=nombre_de_mes, presupuesto_anual=presupuesto_anual)
 
 
 
@@ -151,6 +153,8 @@ def index():
 @app.route("/agregar", methods=["GET", "POST"])
 @login_required
 def agregar():
+
+    presupuesto_anual = db.execute("SELECT budget FROM users WHERE id = ?", session["user_id"])[0]["budget"]
 
     if request.method == "POST":
         nombre_gasto = request.form.get("nombre_gasto")
@@ -169,29 +173,59 @@ def agregar():
         if not nombre_gasto or not categoria or not dia or not mes or not precio or not anio:
             # MESSAGE: ONE OR MORE FIELDS LEFT BLANK
             error_message = "Error: Uno o más campos fueron dejados en blanco."
-            return render_template("agregar.html", error_message=error_message)
+            return render_template("agregar.html", error_message=error_message, presupuesto_anual=presupuesto_anual)
         # --------------------------------------------------------
         # check for valid precio
 
         if precio[0] == "$":
             precio = precio[1:]
-            
+
         try:
             precio = float(precio)
 
         except ValueError:
             # ERROR MESSAGE: INVALID PRICE
             error_message = "Error: Precio inválido. Utilice caracteres numéricos."
-            return render_template("agregar.html", error_message=error_message)
+            return render_template("agregar.html", error_message=error_message, presupuesto_anual=presupuesto_anual)
         # --------------------------------------------------------
 
         db.execute("INSERT INTO history VALUES (?,?,?,?,?,?,?)", session["user_id"], nombre_gasto, categoria, precio, dia, mes, anio)
         # return success message
         success_message = "Gasto agregado exitosamente :)"
-        return render_template("agregar.html", nombre_gasto=nombre_gasto, success_message=success_message)
+        return render_template("agregar.html", nombre_gasto=nombre_gasto, success_message=success_message, presupuesto_anual=presupuesto_anual)
 
     else:
-        return render_template("agregar.html")
+        return render_template("agregar.html", presupuesto_anual=presupuesto_anual)
+
+
+@app.route("/cuenta", methods=["GET", "POST"])
+@login_required
+def cuenta():
+
+    success_message = ""
+    error_message = ""
+
+    if request.method == "POST":
+
+        nueva_contraseña = request.form.get("contraseña")
+        presupuesto = request.form.get("presupuesto")
+
+        if presupuesto:
+            try:
+                presupuesto = int(presupuesto)
+                db.execute("UPDATE users SET budget = ? WHERE id = ?", presupuesto, session["user_id"])
+                success_message= "Presupuesto actualizado correctamente"
+            except:
+                error_message = "Error: Introduzca un entero para el nuevo presupuesto."
+            
+        elif nueva_contraseña:
+            db.execute("UPDATE users SET hash = ? WHERE id = ?", generate_password_hash(nueva_contraseña), session["user_id"])
+            success_message= "Contraseña actualizada correctamente"
+
+        else:
+            error_message = "Error: Complete el campo antes de enviar/cambiar."
+
+    return render_template("cuenta.html", success_message=success_message, error_message=error_message)
 
 
 
@@ -241,28 +275,26 @@ def register():
 
     if request.method == "POST":
 
-        #check if a username was provided
-        if not request.form.get("username"):
+        username = request.form.get("username")
+        password = request.form.get("password")
+        email = request.form.get("email")
+        presupuesto = request.form.get("presupuesto")
+
+        if not username or not password or not email or not presupuesto:
+            # ERROR MESSAGE
             return render_template("register.html")
 
-        #check that a password was provided
-        elif not request.form.get("password"):
-            return render_template("register.html")
-
-        #check that the password and password confirmation match
-        elif request.form.get("password") != request.form.get("confirmation"):
-            return render_template("register.html")
-        
         #get all users's usernames
         users = db.execute("SELECT username from users")
 
         # checks if the username is available
         if any(request.form.get("username") in d.values() for d in users):
+            #ERROR MESSAGE: username unavailable
             return render_template("register.html")
+
         # Register the user :)
         else:
-            db.execute("INSERT into users (username, email, hash) VALUES(?,?,?)", request.form.get(
-                "username"),request.form.get("email"), generate_password_hash(request.form.get("password")))
+            db.execute("INSERT into users (username, email, hash, budget) VALUES(?,?,?,?)", username, email, generate_password_hash(password), presupuesto)
 
         return redirect("/login")
 

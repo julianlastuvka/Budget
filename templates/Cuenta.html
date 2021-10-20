@@ -1,12 +1,69 @@
-{% extends "layout.html" %}
+{% extends "layout_sin_presupuesto.html" %}
 
 {% block title %} Cuenta {% endblock %}
 
 {% block body %}
 
 
+<div class="cambios_cuenta_container">
 
+    <ul class="lista_cambio_cuenta">
 
+        <li>
+            <h1 class="titulo_cuenta">
+                Modificar Presupuesto Anual:
+            </h1>
+            
+        </li>
+
+        <form action="/cuenta" method="post">
+            <li>
+                <input autocomplete="off" autofocus class="form-presupuesto" name="presupuesto"
+                    placeholder="Nuevo presupuesto" type="text">
+            </li>
+
+            <li>
+                <button class="btn-presupuesto" type="submit">Enviar</button>
+            </li>
+        </form>
+
+    </ul>
+
+    <ul class="lista_cambio_cuenta">
+
+        <li>
+            <h1 class="titulo_cuenta">
+                Cambiar Contraseña:
+            </h1>
+            
+        </li>
+
+        <form action="/cuenta" method="post">
+            <li>
+                <input autocomplete="off" class="form-contraseña" name="contraseña"
+                    placeholder="Nueva contraseña" type="password">
+            </li>
+
+            <li>
+                <button class="btn-presupuesto" type="submit">Cambiar</button>
+            </li>
+        </form>
+
+    </ul>
+
+    {% if error_message %}
+    <div class="alert_error">
+        {{error_message}}
+    </div>
+    {% endif %}
+
+    {% if success_message %}
+    <div class="alert_success">
+        {{success_message}}
+    </div>
+    {% endif %}
+
+</div>
 
 
 {% endblock %}
