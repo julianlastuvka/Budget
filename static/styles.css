@@ -72,7 +72,7 @@ header{
 
 /**** CONTACT BUTTON ***/
 
-.contact {
+.cerrar_sesion {
     margin-left: 25%;
     margin-right: 3vw;
     padding: 0.84vh 0.7vw;
@@ -84,14 +84,31 @@ header{
     transition: all 0.3s ease 0s;
     cursor:pointer;
     justify-self: right;
+    display: inline-block;
 }
 
-.contact:hover{
+.cerrar_sesion:hover{
     text-shadow: 3px 3px #dd9bad;
     font-size: 2.85vh;
 }
 
 /* ------------------------------ END NAV -------------------------------*/
+
+/* alert messages*/
+.alert_error, .alert_success {
+    padding: 15px;
+    background-color: #f44336; /* Red */
+    color: white;
+    font-family: "Montserrat";
+    font-weight: 600;
+    font-size: 2.6vh;
+    border-radius: 20px;
+}
+
+.alert_success{
+    background-color: green;
+}
+
 
 /* ------------------------- Tabla presupuesto & Tabla Fecha -------------------------*/
 
@@ -140,6 +157,9 @@ header{
     margin:4vw;
 }
 
+select{
+    text-shadow: 1px 1px 1px  black;
+}
 
 /***** FORM *****/
 
@@ -316,17 +336,6 @@ input:-webkit-autofill {
     color: white;
 }
 
-/* IMG CHERRY BLOSSOM*/
-
-.cherry_img_container{
-    z-index: -1;
-    margin: -10px auto;
-}
-
-.cherry_img_container img{
-    height: 630px;
-    width: 500px;
-}
 
 /*------------------------------------ HISTORY TABLE (DIARIO) ---------------------------------------------  */
 

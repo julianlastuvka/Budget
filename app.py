@@ -167,24 +167,28 @@ def agregar():
 
         #checking for blank fields.
         if not nombre_gasto or not categoria or not dia or not mes or not precio or not anio:
-            # TO DO 
             # MESSAGE: ONE OR MORE FIELDS LEFT BLANK
-            return render_template("agregar.html")
+            error_message = "Error: Uno o más campos fueron dejados en blanco."
+            return render_template("agregar.html", error_message=error_message)
         # --------------------------------------------------------
         # check for valid precio
+
+        if precio[0] == "$":
+            precio = precio[1:]
+            
         try:
             precio = float(precio)
 
         except ValueError:
-            # TODO
-            # ERROR MESSAGE: INVALID PRICE OR QUANTITY
-            return render_template("agregar.html")
+            # ERROR MESSAGE: INVALID PRICE
+            error_message = "Error: Precio inválido. Utilice caracteres numéricos."
+            return render_template("agregar.html", error_message=error_message)
         # --------------------------------------------------------
 
         db.execute("INSERT INTO history VALUES (?,?,?,?,?,?,?)", session["user_id"], nombre_gasto, categoria, precio, dia, mes, anio)
-        # TODO
         # return success message
-        return render_template("agregar.html", nombre_gasto=nombre_gasto)
+        success_message = "Gasto agregado exitosamente :)"
+        return render_template("agregar.html", nombre_gasto=nombre_gasto, success_message=success_message)
 
     else:
         return render_template("agregar.html")

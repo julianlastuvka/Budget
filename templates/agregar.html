@@ -68,6 +68,17 @@ block body %}
 
     </form>
 
+    {% if error_message %}
+    <div class="alert_error">
+        {{error_message}}
+    </div>
+    {% endif %}
+
+    {% if success_message %}
+    <div class="alert_success">
+        {{success_message}}
+    </div>
+    {% endif %}
 </div>  
 
 {% endblock %}
