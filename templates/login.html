@@ -43,6 +43,12 @@
 
         </ul>
 
+        {% if error_message %}
+        <div class="alert_error">
+            {{error_message}}
+        </div>
+        {% endif %}
+
     </div>
 
 </body>

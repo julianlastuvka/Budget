@@ -33,7 +33,10 @@
             </li>
 
             <li>
-                <input autocomplete="off" name="presupuesto" placeholder="Presupuesto anual" type="text">
+                <input id="presupuesto" autocomplete="off" name="presupuesto" placeholder="Presupuesto anual" type="text">
+                <h5 class="campo_opcional">
+                    (opcional)
+                </h5>
                 
             </li>
             <li>
@@ -45,6 +48,12 @@
                 <p class="redirigir_iniciar_sesion">Ya tienes una cuenta? <a href="/login">Inicia sesion aqui.</a></p>
             </li>
         </ul>
+
+        {% if error_message %}
+        <div class="alert_error">
+            {{error_message}}
+        </div>
+        {% endif %}
 
     </div>
 

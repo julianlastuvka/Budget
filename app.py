@@ -120,6 +120,9 @@ def index():
             rows = db.execute("SELECT * from history WHERE id = ? AND anio = ? AND mes = ? AND dia = ?", session["user_id"], anio, mes, dia)
 
             gasto_total_dia = procesar_gastos_diarios(rows)
+            
+            if not gasto_total_dia:
+                gasto_total_dia = "No hay gastos registrados en el día seleccionado."
 
             return render_template("index.html", dia=dia, mes=mes, anio=anio, gasto_total_dia=gasto_total_dia, rows=rows, nombre_de_mes=nombre_de_mes, presupuesto_anual=presupuesto_anual)
         
@@ -128,12 +131,18 @@ def index():
             rows = db.execute("SELECT * from history WHERE id = ? AND anio = ? AND mes = ?", session["user_id"], anio, mes)
             
             gastos_mensuales, gasto_total_mes = procesar_gastos_mensuales(rows)
+
+            if not gastos_mensuales:
+                gastos_mensuales = "No hay gastos registrados en el mes seleccionado."
             
             return render_template("index.html", rows=rows, anio=anio, mes=mes, dia=dia, gastos_mensuales=gastos_mensuales, gasto_total_mes=gasto_total_mes, nombre_de_mes=nombre_de_mes, presupuesto_anual=presupuesto_anual)
 
         # Yearly history
         elif anio:
             gastos_por_mes, gasto_total_anio = procesar_gastos_anuales(anio)
+
+            if not gasto_total_anio:
+                gasto_total_anio = "No hay gastos registrados en el año seleccionado."
 
             return render_template("index.html", dia=dia, mes=mes, anio=anio, gastos_por_mes=gastos_por_mes, gasto_total_anio=gasto_total_anio, presupuesto_anual=presupuesto_anual)
 
@@ -238,20 +247,21 @@ def login():
     # User reached route via POST (as by submitting a form via POST)
     if request.method == "POST":
 
-        # Ensure username was submitted
-        if not request.form.get("username"):
-            return redirect("/login")
+        username = request.form.get("username")
+        password = request.form.get("password")
 
-        # Ensure password was submitted
-        elif not request.form.get("password"):
-            return redirect("/login")
+        # Ensure username was submitted
+        if not username or not password:
+            error_message = "Introduzca un nombre de usuario y contraseña."
+            return render_template("login.html", error_message=error_message)
 
         # Query database for username
-        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+        rows = db.execute("SELECT * FROM users WHERE username = ?", username)
 
         # Ensure username exists and password is correct
-        if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
-            return redirect("/login")
+        if len(rows) != 1 or not check_password_hash(rows[0]["hash"], password):
+            error_message = "El usuario o la contraseña no son correctos."
+            return render_template("login.html", error_message=error_message)
 
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
@@ -282,15 +292,16 @@ def register():
 
         if not username or not password or not email or not presupuesto:
             # ERROR MESSAGE
-            return render_template("register.html")
+            error_message = "Complete los campos de usuario, email y contraseña."
+            return render_template("register.html", error_message=error_message)
 
         #get all users's usernames
         users = db.execute("SELECT username from users")
 
         # checks if the username is available
         if any(request.form.get("username") in d.values() for d in users):
-            #ERROR MESSAGE: username unavailable
-            return render_template("register.html")
+            error_message = "EL nombre de usuario se encuentra en uso. Intente con uno diferente."
+            return render_template("register.html", error_message=error_message)
 
         # Register the user :)
         else:

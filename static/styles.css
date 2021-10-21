@@ -103,6 +103,7 @@ header{
     font-weight: 600;
     font-size: 2.6vh;
     border-radius: 20px;
+    margin-top: 10px;
 }
 
 .alert_success{
@@ -275,7 +276,7 @@ input:-webkit-autofill {
 }
 
 .redirigir_iniciar_sesion a{
-    color: #f796a7;
+    color: #f28b9d;
     font-size: 2.5vh;
     text-decoration: underline;
     text-shadow: 0px 1px 0px #f83535;
@@ -318,6 +319,21 @@ input:-webkit-autofill {
     color: rgba(34, 28, 28, 0.48);
     font-family: "Montserrat";
     background: #b3b1b11a;
+}
+
+/* El campo presupuesto no tiene bottom margin */
+
+#presupuesto{
+    margin-bottom: 0px;
+}
+
+.campo_opcional{
+    margin-bottom: 20px;
+    margin-left: 10px;
+
+    color: #00000096;
+    font-size: 1.9vh;
+    text-shadow: 1px 1px 1px gray;
 }
 
 .btn-register, .btn-login, .btn-presupuesto{
@@ -796,9 +812,9 @@ label{
         font-size: 1.8vh;
     }
 
-    /********* LOGIN AND REGISTER  ******/
+    /********* LOGIN, REGISTER & CUENTA ******/
 
-    .register-container, .login-container{
+    .register-container, .login-container, .cambios_cuenta_container{
     width: 80%;
     padding: 30px;  
     border-radius: 20px;
@@ -890,7 +906,7 @@ label{
 
 /********* LOGIN AND REGISTER  ******/
 
-.register-container, .login-container{
+.register-container, .login-container, .cambios_cuenta_container{
         width: 55%;
         padding: 30px;  
         border-radius: 20px;

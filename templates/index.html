@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout_and_budget.html" %}
 
 {% block title %}
 Ver Gastos
@@ -111,11 +111,18 @@ Ver Gastos
 
 <!-- TABLA HISTORIAL DE GASTOS DIARIOS-->
 
-{% if gasto_total_dia %}
+{% if gasto_total_dia == "No hay gastos registrados en el día seleccionado." %}
+
+    <div class="alert_error">
+        {{gasto_total_dia}}
+    </div>
+
+
+{% elif gasto_total_dia %}
 
 <div class=" table-history-container">
     <h1 class="titulo_historial_gastos">
-        Gastos del dia {{dia}} de {{nombre_de_mes}}, {{anio}}
+        Gastos del dia {{dia}} de {{nombre_de_mes}}, {{anio}}:
     </h1>
     <table class="table-history">
         <thead>
@@ -152,11 +159,26 @@ Ver Gastos
 
 <!-- TABLA HISTORIAL DE GASTOS MENSUALES-->
 
-{%if gastos_mensuales%}
+
+{% if gastos_mensuales == "No hay gastos registrados en el mes seleccionado." %}
+
+    <div class="alert_error">
+        {{gastos_mensuales}}
+    </div>
+
+{%elif gastos_mensuales%}
 
 <div class="tabla-gastos-mensuales-container">
 
-    <h1 class="titulo_historial_gastos">Gastos de {{nombre_de_mes}}, {{anio}}</h1>
+    {% if nombre_de_mes %}
+
+    <h1 class="titulo_historial_gastos">Gastos de {{nombre_de_mes}}, {{anio}}:</h1>
+
+    {% else %}
+
+    <h1 class="titulo_historial_gastos">Gastos del mes actual:</h1>
+
+    {% endif %}
 
     <table class="tabla-gastos-mensuales">
 
@@ -209,7 +231,7 @@ Ver Gastos
         </tr>
 
     </table>
-    <h1 class="titulo_historial_gastos"> Total: ${{gasto_total_mes}}</h2>
+    <h1 class="titulo_historial_gastos"> Total mes: ${{gasto_total_mes}}</h2>
 </div>
 
 
@@ -218,12 +240,18 @@ Ver Gastos
 
 <!-- TABLA HISTORIAL DE GASTOS ANUALES-->
 
-{% if gasto_total_anio %}
+{% if gasto_total_anio == "No hay gastos registrados en el año seleccionado." %}
+
+    <div class="alert_error">
+        {{gasto_total_anio}}
+    </div>
+
+{% elif gasto_total_anio %}
 
 <div class="tabla-gastos-anuales-container">
 
     <h1 class="titulo_historial_gastos">
-        Gastos de {{anio}}
+        Gastos de {{anio}}:
     </h1>
 
     <table class="tabla-gastos-anuales">

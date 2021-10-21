@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+    {% block presupuesto %}
+    <table class="presupuesto">
+        <thead>
+            <tr>
+                <td>Presupuesto</td>
+                <td>Anual</td>
+                <td>Mensual</td>
+            </tr>
+        </thead>
+    
+        <tbody>
+            <tr>
+                <td></td>
+            </tr>
+            <tr class="presupuesto__body">
+                <td id="empty"></td>
+                <td>${{presupuesto_anual}}</td>
+                <td>${{presupuesto_anual/12}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {% endblock %}
+
