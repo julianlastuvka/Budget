@@ -11,8 +11,16 @@
     text-shadow: 0px 1px 0px #000000;
 }
 
+#blossom{
+    position: absolute;
+    transform: rotate(190deg);
+    top: -300px;
+    left: -310px;
+    z-index: -1;
+}
+
 body{
-    height:100vh;
+    height: 100vh;
     background-image: radial-gradient(circle, #f4bdcb, #f5c3cf, #f6c9d4, #f6cfd8, #f7d5dd, #f7d7df, #f8dae0, #f8dce2, #f8dbe1, #f7dae0, #f7d8df, #f6d7de);   background-size: 100% 1000%;
 }
 
@@ -126,7 +134,7 @@ header{
 
 .presupuesto td, .tabla-filtrar-fecha td{
     padding: 0.88vh 0.7vw;
-    border-radius: 50px; 
+    border-radius: 20px; 
 }
 
 .presupuesto thead td{
@@ -149,7 +157,7 @@ header{
 }
 
 .tabla-filtrar-fecha td option{
-    font-size: 2.1vh;
+    font-size: 2.5vh;
 }
 
 /* ---------------------------- INPUT GASTOS --------------------------------*/
@@ -370,8 +378,11 @@ input:-webkit-autofill {
     font-family: "Arial Black", sans-serif;
     font-size: 2.9vh;
     letter-spacing: 0px;
-    background-color: rgba(172, 91, 145, 0.72);
+    background-color: rgba(172, 91, 145, 0.364);
     color: white;
+    text-shadow: 1px 1px 1px black;
+    border-radius: 5px;
+    text-indent: 5px;
 }
 
 
@@ -592,6 +603,12 @@ label{
 
 
 @media screen and (max-width: 500px){
+
+    /*  IMG CHERRY BLOSSOM*/
+
+    #blossom{
+        left: -350px;
+    }
 
     /* GRID HEADER */
 

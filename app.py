@@ -49,9 +49,9 @@ def procesar_gastos_diarios(rows):
 
     return gasto_total_dia
 
-def procesar_gastos_mensuales(rows):
+def procesar_gastos_mensuales(gastos_del_mes):
 
-    if not rows:
+    if not gastos_del_mes:
         return {}, 0
     j = 0
     gastos_diarios_del_mes = {}
@@ -60,11 +60,12 @@ def procesar_gastos_mensuales(rows):
     for dia in range(1,32):
     
         total_dia = 0
-        while rows[j]["dia"] == dia:
+
+        while gastos_del_mes[j]["dia"] == dia:
         
-            total_dia += int(rows[j]["precio"])
+            total_dia += int(gastos_del_mes[j]["precio"])
         
-            if j < len(rows) - 1:
+            if j < len(gastos_del_mes) - 1:
                 j+= 1
             else:
                 break
@@ -78,22 +79,22 @@ def procesar_gastos_mensuales(rows):
 
 def procesar_gastos_anuales(anio):
 
-    gastos_por_mes = {}
+    gastos_totales_de_cada_mes = {}
     gasto_total_anio = 0
 
     for mes in range(1, 13):
 
-        row = db.execute("SELECT * FROM history WHERE id = ? AND anio = ? AND mes = ?", session["user_id"], anio, mes)
+        gastos_del_mes = db.execute("SELECT dia, precio FROM history WHERE id = ? AND anio = ? AND mes = ? ORDER BY dia", session["user_id"], anio, mes)
 
-        if row:
-            n, gasto_total_mes = procesar_gastos_mensuales(row)
+        if gastos_del_mes:
+            n, gasto_total_mes = procesar_gastos_mensuales(gastos_del_mes)
         else:
             gasto_total_mes = 0
 
-        gastos_por_mes[mes] = gasto_total_mes
+        gastos_totales_de_cada_mes[mes] = gasto_total_mes
         gasto_total_anio += gasto_total_mes
 
-    return gastos_por_mes, gasto_total_anio
+    return gastos_totales_de_cada_mes, gasto_total_anio
     
 
 
@@ -128,9 +129,11 @@ def index():
         
         # Montly history
         elif anio and mes:
-            rows = db.execute("SELECT * from history WHERE id = ? AND anio = ? AND mes = ?", session["user_id"], anio, mes)
+            rows = db.execute("SELECT dia, precio from history WHERE id = ? AND anio = ? AND mes = ? ORDER BY DIA", session["user_id"], anio, mes)
             
             gastos_mensuales, gasto_total_mes = procesar_gastos_mensuales(rows)
+
+            print(f"\n\n\n {gastos_mensuales} \n\n\n")
 
             if not gastos_mensuales:
                 gastos_mensuales = "No hay gastos registrados en el mes seleccionado."
@@ -150,7 +153,7 @@ def index():
     date = datetime.now()
     anio, mes, dia = date.year, date.month, date.day
     nombre_de_mes = ""
-    rows = db.execute("SELECT * from history WHERE id = ? AND anio = ? AND mes = ?", session["user_id"], anio, mes)
+    rows = db.execute("SELECT dia, precio from history WHERE id = ? AND anio = ? AND mes = ? ORDER BY dia", session["user_id"], anio, mes)
     gastos_mensuales, gasto_total_mes = procesar_gastos_mensuales(rows)
 
 
@@ -200,7 +203,7 @@ def agregar():
 
         db.execute("INSERT INTO history VALUES (?,?,?,?,?,?,?)", session["user_id"], nombre_gasto, categoria, precio, dia, mes, anio)
         # return success message
-        success_message = "Gasto agregado exitosamente :)"
+        success_message = f"Gasto '{nombre_gasto}' agregado exitosamente :)"
         return render_template("agregar.html", nombre_gasto=nombre_gasto, success_message=success_message, presupuesto_anual=presupuesto_anual)
 
     else:
