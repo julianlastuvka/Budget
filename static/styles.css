@@ -158,6 +158,7 @@ header{
 
 .tabla-filtrar-fecha td option{
     font-size: 2.5vh;
+    color: black;
 }
 
 /* ---------------------------- INPUT GASTOS --------------------------------*/
@@ -168,6 +169,7 @@ header{
 
 select{
     text-shadow: 1px 1px 1px  black;
+    
 }
 
 /***** FORM *****/

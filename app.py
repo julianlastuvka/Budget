@@ -293,7 +293,10 @@ def register():
         email = request.form.get("email")
         presupuesto = request.form.get("presupuesto")
 
-        if not username or not password or not email or not presupuesto:
+        if not presupuesto:
+            presupuesto = 0
+
+        if not username or not password or not email:
             # ERROR MESSAGE
             error_message = "Complete los campos de usuario, email y contraseña."
             return render_template("register.html", error_message=error_message)
