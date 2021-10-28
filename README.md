@@ -8,7 +8,7 @@ This is the readme for my cs50 final proyect: Budget.
 	while making sure that you don't go over your budget.
 
 
-####Technologies used:
+#### Technologies used:
 	HTML, CSS and JS in the front-end. SQL and flask in the back-end.
 
 #### Responsiveness:
