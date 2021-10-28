@@ -9,7 +9,7 @@ This is the readme for my cs50 final proyect: Budget.
 
 
 ####Technologies used:
-		HTML, CSS and JS in the front-end. SQL and flask in the back-end.
+	HTML, CSS and JS in the front-end. SQL and flask in the back-end.
 
 #### Responsiveness:
 	The website is fully responsive. You can use in a phone, tablet or desktop.
