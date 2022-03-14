@@ -37,7 +37,7 @@ This is the readme for my cs50 final proyect: Budget.
 		If the information does not match or you left a field blank, an error message will appear.
 
 #### Budget (Presupuesto):
-	You can visualize your annualy and montly budget in the
+	You can visualize your annual and monthly budget in the
 	"see expenses" (Ver gastos) or "add expenses" (Agregar gastos) pages. If you
 	want to change it, you can do so in the "account" (Cuenta) page.
 
@@ -51,7 +51,7 @@ This is the readme for my cs50 final proyect: Budget.
 
 #### See expenses (Ver gastos):
 	Here you can see and filter your expenses by day, month and year.
-	To do so, decide if you want to visualize your expenses yearly, montly or daily and press the corresponding radio button.
+	To do so, decide if you want to visualize your expenses yearly, monthly or daily and press the corresponding radio button.
 	Then choose the date that you want to check and press "search"(Buscar).
 	If you don't have recorded expenses on that period of time, an error message will tell you and
 	no expenses will be shown.
@@ -60,14 +60,14 @@ This is the readme for my cs50 final proyect: Budget.
 	you can see the total expense for the year.
 	The monthly expenses will be shown in a table that looks like a calendar. It shows you how much you spent in each day of the month
 	that you choose. At the bottom you can see the total expense for the month.
-	The daily expenses will also be shown in a table that is very similat to the annual expenses one. In this table you can see
+	The daily expenses will also be shown in a table that is very similar to the annual expenses one. In this table you can see
 	each individual expense with its respective name, category and price. At the bottom of the table the total expense of the day will
 	be displayed.
 
 
 #### Account (Cuenta):
 	Here you can modify your annual budget and password. Your password can be anything. If you don't fill the field before submiting,
-	an error message will appear. If change your budget or password successfully, a success message will appear.
+	an error message will appear. If you change your budget or password successfully, a success message will appear.
 
 
 #### App.py:
